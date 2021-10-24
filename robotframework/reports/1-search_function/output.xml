@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.9.6 on win32)" generated="20211024 11:53:37.968" rpa="false" schemaversion="2">
+<suite id="s1" name="1-Search Function" source="C:\Users\iamteerawut\GitLibrary\assignment-central\robotframework\integrations\1-search_function">
+<suite id="s1-s1" name="1-Testcases" source="C:\Users\iamteerawut\GitLibrary\assignment-central\robotframework\integrations\1-search_function\1-testcases.robot">
+<kw name="Open Officemate Site" library="common_resources" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${endpoint_url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211024 11:53:38.196" level="INFO">Opening browser 'Chrome' to base url 'https://www.officemate.co.th'.</msg>
+<status status="PASS" starttime="20211024 11:53:38.195" endtime="20211024 11:53:42.602"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.2s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20211024 11:53:42.602" endtime="20211024 11:53:42.602"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>0.3s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20211024 11:53:42.602" endtime="20211024 11:53:42.805"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211024 11:53:42.805" endtime="20211024 11:53:43.216"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>//iframe[contains(@class,'sp-fancybox-iframe-535')]</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20211024 11:53:43.219" endtime="20211024 11:53:43.529"/>
+</kw>
+<kw name="Select Frame" library="SeleniumLibrary">
+<arg>//iframe[contains(@class,'sp-fancybox-iframe-535')]</arg>
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<msg timestamp="20211024 11:53:43.529" level="INFO">Selecting frame '//iframe[contains(@class,'sp-fancybox-iframe-535')]'.</msg>
+<status status="PASS" starttime="20211024 11:53:43.529" endtime="20211024 11:53:44.153"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//i[@class="fa fa-times element-close-button"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211024 11:53:44.153" level="INFO">Clicking element '//i[@class="fa fa-times element-close-button"]'.</msg>
+<status status="PASS" starttime="20211024 11:53:44.153" endtime="20211024 11:53:44.637"/>
+</kw>
+<kw name="Unselect Frame" library="SeleniumLibrary">
+<doc>Sets the main frame as the current frame.</doc>
+<status status="PASS" starttime="20211024 11:53:44.637" endtime="20211024 11:53:44.839"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>//button[contains(text(), 'ยอมรับ')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211024 11:53:44.839" level="INFO">Clicking button '//button[contains(text(), 'ยอมรับ')]'.</msg>
+<status status="PASS" starttime="20211024 11:53:44.839" endtime="20211024 11:53:45.952"/>
+</kw>
+<status status="PASS" starttime="20211024 11:53:38.195" endtime="20211024 11:53:45.952"/>
+</kw>
+<test id="s1-s1-t1" name="UI: Search function with Search Query">
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>//input[@data-testid='txt-SearchBar']</arg>
+<arg>ปากกา</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20211024 11:53:45.953" level="INFO">Sending key(s) ('ปากกา', 'RETURN') to //input[@data-testid='txt-SearchBar'] element.</msg>
+<msg timestamp="20211024 11:53:46.666" level="INFO">Sending keys ปากกา</msg>
+<msg timestamp="20211024 11:53:46.921" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20211024 11:53:46.921" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20211024 11:53:45.953" endtime="20211024 11:53:47.187"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain" library="SeleniumLibrary">
+<arg>กรุณารอสักครู่</arg>
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<status status="PASS" starttime="20211024 11:53:47.187" endtime="20211024 11:53:50.196"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>//div[@class='knEvI']</arg>
+<arg>ค้นพบสินค้า</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20211024 11:53:50.196" endtime="20211024 11:53:50.637"/>
+</kw>
+<kw name="Calling Search API">
+<var>${total}</var>
+<arg>${3481}</arg>
+<arg>ปากกา</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>x-store-code</arg>
+<arg>th</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211024 11:53:50.638" level="INFO">${headers} = {'Content-Type': 'application/json', 'x-store-code': 'th'}</msg>
+<status status="PASS" starttime="20211024 11:53:50.638" endtime="20211024 11:53:50.638"/>
+</kw>
+<kw name="Create Parameters" library="custom">
+<var>${parameters}</var>
+<arg>${search_query}</arg>
+<arg>${category_id}</arg>
+<arg>${brand_name}</arg>
+<arg>${price_range}</arg>
+<msg timestamp="20211024 11:53:50.639" level="INFO">${parameters} = searchQuery=ปากกา&amp;visibility=4</msg>
+<status status="PASS" starttime="20211024 11:53:50.638" endtime="20211024 11:53:50.639"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${endpoint_api_url}/search/products</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${parameters}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211024 11:53:50.869" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;visibility=4 
+ path_url=/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;visibility=4 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-store-code': 'th'} 
+ body=None 
+ </msg>
+<msg timestamp="20211024 11:53:50.871" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;visibility=4 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"214eee-3qPgvU+MgkiWmkwNgxOYs7diYmc"', 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=120', 'Expires': 'Sun, 24 Oct 2021 04:55:50 GMT', 'Date': 'Sun, 24 Oct 2021 04:53:50 GMT', 'Content-Length': '167323', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":3481,"products":[{"id":119012,"type_id":"simple","name":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม.","brand_name":"ตราม้า","small_image":"/1/0/1010202.jpg","image":"/1/0/1010202.jpg","thumbnail":"/1/0/1010202.jpg","url_key":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202","attribute_set_id":677,"visibility":4,"status":1,"is_returnable":"2","category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":107,"name":"อุปกรณ์สำนักงาน","level":2,"parent_id":2,"url_key":"office-supplies","url_path":"office-supplies","is_parent":true},{"category_id":108,"name":"ปากกา &amp; หมึกเติม","level":3,"parent_id":107,"url_key":"pens-refills","url_path":"office-supplies/pens-refills","is_parent":true},{"category_id":109,"name":"ปากกาลูกลื่น","level":4,"parent_id":108,"url_key":"ball-pen","url_path":"office-supplies/pens-refills/ball-pen","is_parent":true},{"category_id":1501,"name":"promotions","level":2,"parent_id":2,"url_key":"promotions","url_path":"promotions","is_parent":true},{"category_id":6153,"name":"ลดแรง! แถมเพียบ! ไอเทมเพื่อการเรียน","level":3,"parent_id":1501,"url_key":"school-supply-1-31aug21","url_path":"promotions/school-supply-1-31aug21","is_parent":true},{"category_id":6349,"name":"ลดสูงสุด 81%* ลดเพิ่ม! 10%* ฟรี* ปากกาเจล","level":3,"parent_id":1501,"url_key":"school-supply-1-30sep21","url_path":"promotions/school-supply-1-30sep21","is_parent":true},{"category_id":6383,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-1-30sep21","url_path":"promotions/grand-sale-office-supplies-1-30sep21","is_parent":true},{"category_id":6386,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน แบรนด์ Nanmee","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-nanmee-1-30sep21","url_path":"promotions/grand-sale-office-supplies-nanmee-1-30sep21","is_parent":true},{"category_id":6628,"name":"STATIONERY-1-31OCT21","level":3,"parent_id":1501,"url_key":"stationery-1-31oct21","url_path":"promotions/stationery-1-31oct21","is_parent":true},{"category_id":6677,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-NANMEE-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-nanmee-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-nanmee-1-31oct21","is_parent":true},{"category_id":6682,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-1-31oct21","is_parent":true}],"price":19,"tier_prices":[{"price":19,"original_price":19,"customer_group_id":0,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":1,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":2,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":3,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":4,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":5,"is_discount":false}],"special_price":19,"special_from_date":"2021-09-29T00:00:00","stock":{"qty":184,"is_in_stock":true},"score":100000,"custom_attributes_option":[{"attribute_code":"small_image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"special_from_date","value":"2021-09-29 00:00:00","position":0},{"attribute_code":"in_xml_sitemap","value":"Include in XML Sitemap","position":0},{"attribute_code":"swatch_image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"ofm_green_product","value":"สินค้าทั่วไป","position":0},{"attribute_code":"price_inc_tax","value":19,"position":0},{"attribute_code":"created_at","value":"2020-10-19 07:20:39","position":0},{"attribute_code":"special_price","value":19,"position":0},{"attribute_code":"unit","value":"ด้าม","position":0},{"attribute_code":"standard_color_dp","value":"คละสี","position":0},{"attribute_code":"writting_color_dp","value":"น้ำเงิน","position":0},{"attribute_code":"ts_dimensions_width","value":15,"position":0},{"attribute_code":"shipment_group_id","value":"MKP_2022","position":0},{"attribute_code":"ofm_product_type","value":15,"position":0},{"attribute_code":"tip_types_dp","value":"1 หัว","position":0},{"attribute_code":"weight","value":7,"position":0},{"attribute_code":"description","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกพิเศษ ทำให้เขียนลื่นขึ้น&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"pen_line_point_dp","value":"0.7 มม.","position":0},{"attribute_code":"ts_dimensions_length","value":145,"position":0},{"attribute_code":"ts_dimensions_height","value":15,"position":0},{"attribute_code":"updated_at","value":"2021-09-29 03:31:47","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"barcode","value":"8858729260500","position":0},{"attribute_code":"image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"price_discount","value":0,"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัว 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"piece_or_pack","value":"1 ขิ้น","position":0},{"attribute_code":"is_returnable","value":"2","position":0},{"attribute_code":"brand_name","value":"ตราม้า","position":0},{"attribute_code":"search_keywords","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม. Horse Ballpoint Pen H-750 Ink Blue Assorted Color 0.7 mm.","position":0},{"attribute_code":"special_price_inc_tax","value":19,"position":0},{"attribute_code":"url_key","value":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202","values":["ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202"],"position":0},{"attribute_code":"package_dp","value":"ชิ้น","position":0},{"attribute_code":"product_group","value":"A","position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"sold_qty","value":3,"position":0},{"attribute_code":"options_container","value":"Block after Info Column","position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"thumbnail","value":"/1/0/1010202.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"name","label":"Product Name","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม."},{"attribute_code":"image","name":"image","label":"Base","value":"/1/0/1010202.jpg"},{"attribute_code":"small_image","name":"small_image","label":"Small","value":"/1/0/1010202.jpg"},{"attribute_code":"thumbnail","name":"thumbnail","label":"Thumbnail","value":"/1/0/1010202.jpg"},{"attribute_code":"options_container","name":"options_container","label":"Display Product Options In","value":"container2"},{"attribute_code":"url_key","name":"url_key","label":"URL Key","value":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202"},{"attribute_code":"msrp_display_actual_price_type","name":"msrp_display_actual_price_type","label":"Display Actual Price","value":"0"},{"attribute_code":"gift_message_available","name":"gift_message_available","label":"Allow Gift Message","value":"0"},{"attribute_code":"gift_wrapping_available","name":"gift_wrapping_available","label":"Allow Gift Wrapping","value":"0"},{"attribute_code":"is_returnable","name":"is_returnable","label":"Enable RMA","value":"2"},{"attribute_code":"swatch_image","name":"swatch_image","label":"Swatch","value":"/1/0/1010202.jpg"},{"attribute_code":"unit","name":"unit","label":"Unit","value":"ด้าม"},{"attribute_code":"discount_code","name":"discount_code","label":"DISCOUNT CODE","value":"0"},{"attribute_code":"barcode","name":"barcode","label":"Barcode","value":"8858729260500"},{"attribute_code":"product_group","name":"product_group","label":"Product Group","value":"a"},{"attribute_code":"search_keywords","name":"search_keywords","label":"ElasticSuite Search Keywords","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม. Horse Ballpoint Pen H-750 Ink Blue Assorted Color 0.7 mm."},{"attribute_code":"description","name":"description","label":"รายละเอียดทั้งหมด","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกพิเศษ ทำให้เขียนลื่นขึ้น&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;"},{"attribute_code":"short_description","name":"short_description","label":"รายละเอียด","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัว 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;"},{"attribute_code":"special_price","name":"special_price","label":"Special Price","value":"17.7600"},{"attribute_code":"weight","name":"weight","label":"น้ำหนัก","value":"7.0000"},{"attribute_code":"ts_dimensions_length","name":"ts_dimensions_length","label":"Length","value":"145.0000"},{"attribute_code":"ts_dimensions_width","name":"ts_dimensions_width","label":"Width","value":"15.0000"},{"attribute_code":"ts_dimensions_height","name":"ts_dimensions_height","label":"Height","value":"15.0000"},{"attribute_code":"delivery_surcharge_fee","name":"delivery_surcharge_fee","label":"Delivery Surcharge Fee","value":"0.0000"},{"attribute_code":"special_price_inc_tax","name":"special_price_inc_tax","label":"Special Price Include Tax","value":"19.0000"},{"attribute_code":"price_inc_tax","name":"price_inc_tax","label":"Price Include Tax","value":"19.0000"},{"attribute_code":"percent_discount","name":"percent_discount","label":"Percent Discount","value":"0.0000"},{"attribute_code":"special_from_date","name":"special_from_date","label":"Special Price From Date","value":"2021-09-28 17:00:00"},{"attribute_code":"special_to_date","name":"special_to_date","label":"Special Price To Date"},{"attribute_code":"special_expires_at","name":"special_expires_at","label":"Special Expires At"},{"attribute_code":"status","name":"status","label":"Enable Product","value":"1"},{"at... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20211024 11:53:50.871" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211024 11:53:50.639" endtime="20211024 11:53:50.871"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_total}</arg>
+<arg>${response.json()['products']['total_count']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20211024 11:53:50.871" endtime="20211024 11:53:50.897"/>
+</kw>
+<msg timestamp="20211024 11:53:50.917" level="INFO">${total} = 3481</msg>
+<status status="PASS" starttime="20211024 11:53:50.637" endtime="20211024 11:53:50.917"/>
+</kw>
+<kw name="Number To String" library="custom">
+<var>${expected}</var>
+<arg>${total}</arg>
+<msg timestamp="20211024 11:53:50.918" level="INFO">${expected} = 3,481</msg>
+<status status="PASS" starttime="20211024 11:53:50.917" endtime="20211024 11:53:50.918"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>//div[@class='knEvI']</arg>
+<arg>${expected}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20211024 11:53:51.355" level="INFO">Element '//div[@class='knEvI']' contains text '3,481'.</msg>
+<status status="PASS" starttime="20211024 11:53:50.918" endtime="20211024 11:53:51.355"/>
+</kw>
+<tag>UI</tag>
+<status status="PASS" starttime="20211024 11:53:45.952" endtime="20211024 11:53:51.356"/>
+</test>
+<test id="s1-s1-t2" name="UI: Search function with Search Query and Category">
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//div[@filter-option='Category_ปากกาลูกลื่น']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20211024 11:53:51.358" endtime="20211024 11:53:52.042"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@filter-option='Category_ปากกาลูกลื่น']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211024 11:53:52.042" level="INFO">Clicking element '//div[@filter-option='Category_ปากกาลูกลื่น']'.</msg>
+<status status="PASS" starttime="20211024 11:53:52.042" endtime="20211024 11:53:52.664"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain" library="SeleniumLibrary">
+<arg>กรุณารอสักครู่</arg>
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<status status="PASS" starttime="20211024 11:53:52.664" endtime="20211024 11:53:54.942"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>//div[@class='knEvI']</arg>
+<arg>ค้นพบสินค้า</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20211024 11:53:54.942" endtime="20211024 11:53:55.375"/>
+</kw>
+<kw name="Calling Search API">
+<var>${total}</var>
+<arg>${576}</arg>
+<arg>ปากกา</arg>
+<arg>109</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>x-store-code</arg>
+<arg>th</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211024 11:53:55.376" level="INFO">${headers} = {'Content-Type': 'application/json', 'x-store-code': 'th'}</msg>
+<status status="PASS" starttime="20211024 11:53:55.376" endtime="20211024 11:53:55.376"/>
+</kw>
+<kw name="Create Parameters" library="custom">
+<var>${parameters}</var>
+<arg>${search_query}</arg>
+<arg>${category_id}</arg>
+<arg>${brand_name}</arg>
+<arg>${price_range}</arg>
+<msg timestamp="20211024 11:53:55.376" level="INFO">${parameters} = searchQuery=ปากกา&amp;category_id=109&amp;visibility=4</msg>
+<status status="PASS" starttime="20211024 11:53:55.376" endtime="20211024 11:53:55.376"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${endpoint_api_url}/search/products</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${parameters}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211024 11:53:55.597" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;visibility=4 
+ path_url=/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;visibility=4 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-store-code': 'th'} 
+ body=None 
+ </msg>
+<msg timestamp="20211024 11:53:55.601" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;visibility=4 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"1f231e-SVFYLKehNUPCtOZQ+17t/RCKzRw"', 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=120', 'Expires': 'Sun, 24 Oct 2021 04:55:55 GMT', 'Date': 'Sun, 24 Oct 2021 04:53:55 GMT', 'Content-Length': '135675', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":576,"products":[{"id":119012,"type_id":"simple","name":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม.","brand_name":"ตราม้า","small_image":"/1/0/1010202.jpg","image":"/1/0/1010202.jpg","thumbnail":"/1/0/1010202.jpg","url_key":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202","attribute_set_id":677,"visibility":4,"status":1,"is_returnable":"2","category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":107,"name":"อุปกรณ์สำนักงาน","level":2,"parent_id":2,"url_key":"office-supplies","url_path":"office-supplies","is_parent":true},{"category_id":108,"name":"ปากกา &amp; หมึกเติม","level":3,"parent_id":107,"url_key":"pens-refills","url_path":"office-supplies/pens-refills","is_parent":true},{"category_id":109,"name":"ปากกาลูกลื่น","level":4,"parent_id":108,"url_key":"ball-pen","url_path":"office-supplies/pens-refills/ball-pen","is_parent":true},{"category_id":1501,"name":"promotions","level":2,"parent_id":2,"url_key":"promotions","url_path":"promotions","is_parent":true},{"category_id":6153,"name":"ลดแรง! แถมเพียบ! ไอเทมเพื่อการเรียน","level":3,"parent_id":1501,"url_key":"school-supply-1-31aug21","url_path":"promotions/school-supply-1-31aug21","is_parent":true},{"category_id":6349,"name":"ลดสูงสุด 81%* ลดเพิ่ม! 10%* ฟรี* ปากกาเจล","level":3,"parent_id":1501,"url_key":"school-supply-1-30sep21","url_path":"promotions/school-supply-1-30sep21","is_parent":true},{"category_id":6383,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-1-30sep21","url_path":"promotions/grand-sale-office-supplies-1-30sep21","is_parent":true},{"category_id":6386,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน แบรนด์ Nanmee","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-nanmee-1-30sep21","url_path":"promotions/grand-sale-office-supplies-nanmee-1-30sep21","is_parent":true},{"category_id":6628,"name":"STATIONERY-1-31OCT21","level":3,"parent_id":1501,"url_key":"stationery-1-31oct21","url_path":"promotions/stationery-1-31oct21","is_parent":true},{"category_id":6677,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-NANMEE-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-nanmee-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-nanmee-1-31oct21","is_parent":true},{"category_id":6682,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-1-31oct21","is_parent":true}],"price":19,"tier_prices":[{"price":19,"original_price":19,"customer_group_id":0,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":1,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":2,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":3,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":4,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":5,"is_discount":false}],"special_price":19,"special_from_date":"2021-09-29T00:00:00","stock":{"qty":184,"is_in_stock":true},"score":100000,"custom_attributes_option":[{"attribute_code":"small_image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"special_from_date","value":"2021-09-29 00:00:00","position":0},{"attribute_code":"in_xml_sitemap","value":"Include in XML Sitemap","position":0},{"attribute_code":"swatch_image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"ofm_green_product","value":"สินค้าทั่วไป","position":0},{"attribute_code":"price_inc_tax","value":19,"position":0},{"attribute_code":"created_at","value":"2020-10-19 07:20:39","position":0},{"attribute_code":"special_price","value":19,"position":0},{"attribute_code":"unit","value":"ด้าม","position":0},{"attribute_code":"standard_color_dp","value":"คละสี","position":0},{"attribute_code":"writting_color_dp","value":"น้ำเงิน","position":0},{"attribute_code":"ts_dimensions_width","value":15,"position":0},{"attribute_code":"shipment_group_id","value":"MKP_2022","position":0},{"attribute_code":"ofm_product_type","value":15,"position":0},{"attribute_code":"tip_types_dp","value":"1 หัว","position":0},{"attribute_code":"weight","value":7,"position":0},{"attribute_code":"description","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกพิเศษ ทำให้เขียนลื่นขึ้น&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"pen_line_point_dp","value":"0.7 มม.","position":0},{"attribute_code":"ts_dimensions_length","value":145,"position":0},{"attribute_code":"ts_dimensions_height","value":15,"position":0},{"attribute_code":"updated_at","value":"2021-09-29 03:31:47","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"barcode","value":"8858729260500","position":0},{"attribute_code":"image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"price_discount","value":0,"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัว 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"piece_or_pack","value":"1 ขิ้น","position":0},{"attribute_code":"is_returnable","value":"2","position":0},{"attribute_code":"brand_name","value":"ตราม้า","position":0},{"attribute_code":"search_keywords","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม. Horse Ballpoint Pen H-750 Ink Blue Assorted Color 0.7 mm.","position":0},{"attribute_code":"special_price_inc_tax","value":19,"position":0},{"attribute_code":"url_key","value":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202","values":["ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202"],"position":0},{"attribute_code":"package_dp","value":"ชิ้น","position":0},{"attribute_code":"product_group","value":"A","position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"sold_qty","value":3,"position":0},{"attribute_code":"options_container","value":"Block after Info Column","position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"thumbnail","value":"/1/0/1010202.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"name","label":"Product Name","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม."},{"attribute_code":"image","name":"image","label":"Base","value":"/1/0/1010202.jpg"},{"attribute_code":"small_image","name":"small_image","label":"Small","value":"/1/0/1010202.jpg"},{"attribute_code":"thumbnail","name":"thumbnail","label":"Thumbnail","value":"/1/0/1010202.jpg"},{"attribute_code":"options_container","name":"options_container","label":"Display Product Options In","value":"container2"},{"attribute_code":"url_key","name":"url_key","label":"URL Key","value":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202"},{"attribute_code":"msrp_display_actual_price_type","name":"msrp_display_actual_price_type","label":"Display Actual Price","value":"0"},{"attribute_code":"gift_message_available","name":"gift_message_available","label":"Allow Gift Message","value":"0"},{"attribute_code":"gift_wrapping_available","name":"gift_wrapping_available","label":"Allow Gift Wrapping","value":"0"},{"attribute_code":"is_returnable","name":"is_returnable","label":"Enable RMA","value":"2"},{"attribute_code":"swatch_image","name":"swatch_image","label":"Swatch","value":"/1/0/1010202.jpg"},{"attribute_code":"unit","name":"unit","label":"Unit","value":"ด้าม"},{"attribute_code":"discount_code","name":"discount_code","label":"DISCOUNT CODE","value":"0"},{"attribute_code":"barcode","name":"barcode","label":"Barcode","value":"8858729260500"},{"attribute_code":"product_group","name":"product_group","label":"Product Group","value":"a"},{"attribute_code":"search_keywords","name":"search_keywords","label":"ElasticSuite Search Keywords","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม. Horse Ballpoint Pen H-750 Ink Blue Assorted Color 0.7 mm."},{"attribute_code":"description","name":"description","label":"รายละเอียดทั้งหมด","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกพิเศษ ทำให้เขียนลื่นขึ้น&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;"},{"attribute_code":"short_description","name":"short_description","label":"รายละเอียด","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัว 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;"},{"attribute_code":"special_price","name":"special_price","label":"Special Price","value":"17.7600"},{"attribute_code":"weight","name":"weight","label":"น้ำหนัก","value":"7.0000"},{"attribute_code":"ts_dimensions_length","name":"ts_dimensions_length","label":"Length","value":"145.0000"},{"attribute_code":"ts_dimensions_width","name":"ts_dimensions_width","label":"Width","value":"15.0000"},{"attribute_code":"ts_dimensions_height","name":"ts_dimensions_height","label":"Height","value":"15.0000"},{"attribute_code":"delivery_surcharge_fee","name":"delivery_surcharge_fee","label":"Delivery Surcharge Fee","value":"0.0000"},{"attribute_code":"special_price_inc_tax","name":"special_price_inc_tax","label":"Special Price Include Tax","value":"19.0000"},{"attribute_code":"price_inc_tax","name":"price_inc_tax","label":"Price Include Tax","value":"19.0000"},{"attribute_code":"percent_discount","name":"percent_discount","label":"Percent Discount","value":"0.0000"},{"attribute_code":"special_from_date","name":"special_from_date","label":"Special Price From Date","value":"2021-09-28 17:00:00"},{"attribute_code":"special_to_date","name":"special_to_date","label":"Special Price To Date"},{"attribute_code":"special_expires_at","name":"special_expires_at","label":"Special Expires At"},{"attribute_code":"status","name":"status","label":"Enable Product","value":"1"},{"att... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20211024 11:53:55.601" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211024 11:53:55.377" endtime="20211024 11:53:55.601"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_total}</arg>
+<arg>${response.json()['products']['total_count']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20211024 11:53:55.601" endtime="20211024 11:53:55.623"/>
+</kw>
+<msg timestamp="20211024 11:53:55.647" level="INFO">${total} = 576</msg>
+<status status="PASS" starttime="20211024 11:53:55.375" endtime="20211024 11:53:55.647"/>
+</kw>
+<kw name="Number To String" library="custom">
+<var>${expected}</var>
+<arg>${total}</arg>
+<msg timestamp="20211024 11:53:55.648" level="INFO">${expected} = 576</msg>
+<status status="PASS" starttime="20211024 11:53:55.648" endtime="20211024 11:53:55.648"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>//div[@class='knEvI']</arg>
+<arg>${expected}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20211024 11:53:56.106" level="INFO">Element '//div[@class='knEvI']' contains text '576'.</msg>
+<status status="PASS" starttime="20211024 11:53:55.648" endtime="20211024 11:53:56.106"/>
+</kw>
+<tag>UI</tag>
+<status status="PASS" starttime="20211024 11:53:51.357" endtime="20211024 11:53:56.106"/>
+</test>
+<test id="s1-s1-t3" name="UI: Search function with Search Query, Category, and Brand Name">
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//div[@filter-option='Brand_ควอนตั้ม']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20211024 11:53:56.107" endtime="20211024 11:53:56.790"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@filter-option='Brand_ควอนตั้ม']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211024 11:53:56.791" level="INFO">Clicking element '//div[@filter-option='Brand_ควอนตั้ม']'.</msg>
+<status status="PASS" starttime="20211024 11:53:56.790" endtime="20211024 11:53:57.400"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain" library="SeleniumLibrary">
+<arg>กรุณารอสักครู่</arg>
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<status status="PASS" starttime="20211024 11:53:57.400" endtime="20211024 11:53:58.939"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>//div[@class='knEvI']</arg>
+<arg>ค้นพบสินค้า</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20211024 11:53:58.939" endtime="20211024 11:53:59.373"/>
+</kw>
+<kw name="Calling Search API">
+<var>${total}</var>
+<arg>${100}</arg>
+<arg>ปากกา</arg>
+<arg>109</arg>
+<arg>ควอนตั้ม</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>x-store-code</arg>
+<arg>th</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211024 11:53:59.374" level="INFO">${headers} = {'Content-Type': 'application/json', 'x-store-code': 'th'}</msg>
+<status status="PASS" starttime="20211024 11:53:59.374" endtime="20211024 11:53:59.374"/>
+</kw>
+<kw name="Create Parameters" library="custom">
+<var>${parameters}</var>
+<arg>${search_query}</arg>
+<arg>${category_id}</arg>
+<arg>${brand_name}</arg>
+<arg>${price_range}</arg>
+<msg timestamp="20211024 11:53:59.375" level="INFO">${parameters} = searchQuery=ปากกา&amp;category_id=109&amp;brand_name=ควอนตั้ม&amp;visibility=4</msg>
+<status status="PASS" starttime="20211024 11:53:59.375" endtime="20211024 11:53:59.375"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${endpoint_api_url}/search/products</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${parameters}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211024 11:54:01.658" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;visibility=4 
+ path_url=/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;visibility=4 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-store-code': 'th'} 
+ body=None 
+ </msg>
+<msg timestamp="20211024 11:54:01.659" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;visibility=4 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"2041c9-COxphm+UTNW7DwBMYh2lEgVa8d0"', 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=120', 'Expires': 'Sun, 24 Oct 2021 04:56:01 GMT', 'Date': 'Sun, 24 Oct 2021 04:54:01 GMT', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive, Transfer-Encoding', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=REVALIDATE, edge; dur=15, origin; dur=2048'} 
+ body={"products":{"total_count":100,"products":[{"id":1478,"type_id":"simple","name":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี 50 ด้าม/แพ็ค ควอนตั้ม Skate 555","brand_name":"ควอนตั้ม","small_image":"/O/F/OFM1003465.jpg","image":"/O/F/OFM1003465.jpg","thumbnail":"/O/F/OFM1003465.jpg","url_key":"quantum-ปากกาลูกลื่น-0-5-มม-น้ำเงิน-แพ็ค50ด้าม-ควอนตั้ม-skate-555-ofm1003465","attribute_set_id":677,"visibility":4,"status":1,"is_returnable":"2","category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":107,"name":"อุปกรณ์สำนักงาน","level":2,"parent_id":2,"url_key":"office-supplies","url_path":"office-supplies","is_parent":true},{"category_id":108,"name":"ปากกา &amp; หมึกเติม","level":3,"parent_id":107,"url_key":"pens-refills","url_path":"office-supplies/pens-refills","is_parent":true},{"category_id":109,"name":"ปากกาลูกลื่น","level":4,"parent_id":108,"url_key":"ball-pen","url_path":"office-supplies/pens-refills/ball-pen","is_parent":true},{"category_id":1501,"name":"promotions","level":2,"parent_id":2,"url_key":"promotions","url_path":"promotions","is_parent":true},{"category_id":5462,"level":2,"parent_id":2,"url_key":"promotionsofficemate-global-cateogory","url_path":"promotionsofficemate-global-cateogory"},{"category_id":5463,"name":"Promotions","level":3,"parent_id":5462,"url_key":"promotions","url_path":"promotionsofficemate-global-cateogory/promotions"},{"category_id":5526,"name":"FEEL-FIN-NEW-TERM-SIAMWALLA","level":3,"parent_id":1501,"url_key":"feel-fin-new-term-siamwalla-1may-31jul21","url_path":"promotions/feel-fin-new-term-siamwalla-1may-31jul21","is_parent":true},{"category_id":6108,"name":"INFINITE-ONLINE-SELLER","level":4,"parent_id":5463,"url_key":"infinite-online-seller","url_path":"promotionsofficemate-global-cateogory/promotions/infinite-online-seller","is_parent":true},{"category_id":6114,"name":"INFINITE-ONLINE-SELLER-SIAMWALLA","level":4,"parent_id":5463,"url_key":"infinite-online-seller-siamwalla","url_path":"promotionsofficemate-global-cateogory/promotions/infinite-online-seller-siamwalla","is_parent":true},{"category_id":6153,"name":"ลดแรง! แถมเพียบ! ไอเทมเพื่อการเรียน","level":3,"parent_id":1501,"url_key":"school-supply-1-31aug21","url_path":"promotions/school-supply-1-31aug21","is_parent":true},{"category_id":6313,"name":"ทั้งลด ทั้งแถม! | อุปกรณ์สำนักงาน แบรนด์ Elephant, Quantum, Master Art","level":3,"parent_id":1501,"url_key":"siamwalla-1-30sep21","url_path":"promotions/siamwalla-1-30sep21","is_parent":true},{"category_id":6349,"name":"ลดสูงสุด 81%* ลดเพิ่ม! 10%* ฟรี* ปากกาเจล","level":3,"parent_id":1501,"url_key":"school-supply-1-30sep21","url_path":"promotions/school-supply-1-30sep21","is_parent":true},{"category_id":6383,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-1-30sep21","url_path":"promotions/grand-sale-office-supplies-1-30sep21","is_parent":true},{"category_id":6388,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน แบรนด์ Siamwalla","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-siamwalla-1-30sep21","url_path":"promotions/grand-sale-office-supplies-siamwalla-1-30sep21","is_parent":true},{"category_id":6628,"name":"STATIONERY-1-31OCT21","level":3,"parent_id":1501,"url_key":"stationery-1-31oct21","url_path":"promotions/stationery-1-31oct21","is_parent":true},{"category_id":6634,"name":"ทั้งลด ทั้งแถม! | อุปกรณ์สำนักงาน แบรนด์ Elephant, Quantum, Master Art","level":3,"parent_id":1501,"url_key":"siamwalla-1-31oct21","url_path":"promotions/siamwalla-1-31oct21","is_parent":true},{"category_id":6680,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-SIAMWALLA-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-siamwalla-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-siamwalla-1-31oct21","is_parent":true},{"category_id":6682,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-1-31oct21","is_parent":true}],"price":199,"tier_prices":[{"price":170,"original_price":199,"customer_group_id":0,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":1,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":2,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":3,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":4,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":5,"is_discount":true}],"special_price":170,"special_from_date":"2021-10-01T00:00:00","special_to_date":"2021-10-31T23:59:59","stock":{"qty":194,"is_in_stock":true},"score":99998,"custom_attributes_option":[{"attribute_code":"small_image","value":"/O/F/OFM1003465.jpg","position":0},{"attribute_code":"special_from_date","value":"2021-10-01 00:00:00","position":0},{"attribute_code":"in_xml_sitemap","value":"Include in XML Sitemap","position":0},{"attribute_code":"swatch_image","value":"no_selection","position":0},{"attribute_code":"online_from_date","value":"2019-04-25 04:00:00","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"ofm_green_product","value":"สินค้าทั่วไป","position":0},{"attribute_code":"percent_discount","value":15,"position":0},{"attribute_code":"flash_deal_from","value":"2021-07-11 17:00:00","position":0},{"attribute_code":"price_inc_tax","value":199,"position":0},{"attribute_code":"online_price","value":157.94,"position":0},{"attribute_code":"created_at","value":"2018-07-16 14:26:13","position":0},{"attribute_code":"installment_plans","value":["5"],"position":0},{"attribute_code":"special_price","value":170,"position":0},{"attribute_code":"unit","value":"แพ็ค","position":0},{"attribute_code":"standard_color_dp","value":"คละสี","position":0},{"attribute_code":"writting_color_dp","value":"น้ำเงิน","position":0},{"attribute_code":"online_price_enabled","value":"Online Price Enabled","position":0},{"attribute_code":"ts_dimensions_width","value":110,"position":0},{"attribute_code":"shipment_group_id","value":"MKP_2022","position":0},{"attribute_code":"ofm_product_type","value":15,"position":0},{"attribute_code":"tip_types_dp","value":"1 หัว","position":0},{"attribute_code":"weight","value":405,"position":0},{"attribute_code":"description","value":"&lt;ul&gt;\r\n&lt;li&gt;ปากกาลูกลื่นแบบกด&lt;/li&gt;\r\n&lt;li&gt;หัวปากกาผลิตจาก Nickel Silver แข็งแรง ทนทาน&lt;/li&gt;\r\n&lt;li&gt;มีความคงทนและให้เส้นสม่ำเสมอ&lt;/li&gt;\r\n&lt;li&gt;เขียนลื่น ลดการใช้งานขณะเขียน&lt;/li&gt;\r\n&lt;li&gt;มีคลิปหนีบ เพื่อความสะดวกในการพกพา&lt;/li&gt;\r\n&lt;li&gt;กริปยางนุ่ม จับกระชับมือ&lt;/li&gt;\r\n&lt;li&gt;สีด้าม : คละสี&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.5 มม.&lt;/li&gt;\r\n&lt;li&gt;บรรจุ 50 ด้าม/แพ็ค&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"pen_line_point_dp","value":"0.5 มม.","position":0},{"attribute_code":"online_price_inc_tax","value":169,"position":0},{"attribute_code":"flash_deal_position","value":38,"position":0},{"attribute_code":"ts_dimensions_length","value":110,"position":0},{"attribute_code":"online_to_date","value":"2019-05-26 03:59:00","position":0},{"attribute_code":"special_expires_at","value":"2021-10-31 23:59:59","position":0},{"attribute_code":"ts_dimensions_height","value":180,"position":0},{"attribute_code":"updated_at","value":"2021-10-01 05:25:52","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"barcode","value":"8851907241223","position":0},{"attribute_code":"image","value":"/O/F/OFM1003465.jpg","position":0},{"attribute_code":"product_flag","value":"ออนไลน์เท่านั้น","position":0},{"attribute_code":"price_discount","value":14.57,"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"&lt;p&gt;ปากกาลูกลื่น ควอนตั้ม Skate 555 หมึกสีน้ำเงิน ชนิดกด ขนาด 0.5 มม. หัวปากกาผลิตจาก Nickel Silver และหัวบอล Tungsten Carbide แข็งแรง ทนทาน อีกทั้งยังควบคุมการไหลของหมึกได้อย่างสม่ำเสมอ ทำให้เส้นหมึกไม่ขาดตอน น้ำหมึกเจลโล่บอลมีความหนืดน้อย (Low Viscosity Ink) เขียนได้ลื่นต่อเนื่อง แห้งไว ไม่ไหลเยิ้มหลังใช้งาน เหมาะสำหรับจดบันทึกการประชุม หรือจดรายงานสำคัญต่างๆ ตัวด้ามจับหุ้มด้วยยางนิ่มบริเวณ Grip Zone จับได้กระชับมือมากยิ่งขึ้นขณะเขียน บรรจุ 50 ด้าม/แพ็ค&lt;/p&gt;","position":0},{"attribute_code":"special_to_date","value":"2021-10-31 23:59:59","position":0},{"attribute_code":"piece_or_pack","value":"50 ขิ้น","position":0},{"attribute_code":"is_returnable","value":"2","position":0},{"attribute_code":"brand_name","value":"ควอนตั้ม","position":0},{"attribute_code":"meta_keyword","value":"ปากกาลูกลื่น 0.5มม. น้ำเงิน 50ด้าม ควอนตั้ม Skate 555","position":0},{"attribute_code":"search_keywords","value":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี 50 ด้าม/แพ็ค ควอนตั้ม Skate 555 Quantum Skate 555 Ball Pen. 0.5 mm. Blue Ink. Assorted Colors. 50 Pcs/Pack","position":0},{"attribute_code":"is_promotion","value":"Is Promotion","position":0},{"attribute_code":"special_price_inc_tax","value":170,"position":0},{"attribute_code":"url_key","value":"quantum-ปากกาลูกลื่น-0-5-มม-น้ำเงิน-แพ็ค50ด้าม-ควอนตั้ม-skate-555-ofm1003465","values":["quantum-ปากกาลูกลื่น-0-5-มม-น้ำเงิน-แพ็ค50ด้าม-ควอนตั้ม-skate-555-ofm1003465"],"position":0},{"attribute_code":"ranking","value":0.0334,"position":0},{"attribute_code":"package_dp","value":"แพ็ค","position":0},{"attribute_code":"product_group","value":"A","position":0},{"attribute_code":"flash_deal_to","value":"2021-07-18 16:59:00","position":0},{"attribute_code":"flash_deal_sold_qty","value":34,"position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"sold_qty","value":42,"position":0},{"attribute_code":"options_container","value":"Block after Info Column","position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"flash_deal_qty","value":9999,"position":0},{"attribute_code":"thumbnail","value":"/O/F/OFM1003465.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"nam... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20211024 11:54:01.660" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211024 11:53:59.375" endtime="20211024 11:54:01.660"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_total}</arg>
+<arg>${response.json()['products']['total_count']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20211024 11:54:01.660" endtime="20211024 11:54:01.679"/>
+</kw>
+<msg timestamp="20211024 11:54:01.698" level="INFO">${total} = 100</msg>
+<status status="PASS" starttime="20211024 11:53:59.373" endtime="20211024 11:54:01.698"/>
+</kw>
+<kw name="Number To String" library="custom">
+<var>${expected}</var>
+<arg>${total}</arg>
+<msg timestamp="20211024 11:54:01.698" level="INFO">${expected} = 100</msg>
+<status status="PASS" starttime="20211024 11:54:01.698" endtime="20211024 11:54:01.699"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>//div[@class='knEvI']</arg>
+<arg>${expected}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20211024 11:54:02.128" level="INFO">Element '//div[@class='knEvI']' contains text '100'.</msg>
+<status status="PASS" starttime="20211024 11:54:01.699" endtime="20211024 11:54:02.128"/>
+</kw>
+<tag>UI</tag>
+<status status="PASS" starttime="20211024 11:53:56.107" endtime="20211024 11:54:02.128"/>
+</test>
+<test id="s1-s1-t4" name="UI: Search function with Search Query, Catagory, Brand Name, and Price Range">
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//div[@role='slider'][2]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20211024 11:54:02.130" endtime="20211024 11:54:03.265"/>
+</kw>
+<kw name="Drag And Drop By Offset" library="SeleniumLibrary">
+<arg>//div[@role='slider'][2]</arg>
+<arg>${-354}</arg>
+<arg>${0}</arg>
+<doc>Drags the element identified with ``locator`` by ``xoffset/yoffset``.</doc>
+<status status="PASS" starttime="20211024 11:54:03.265" endtime="20211024 11:54:04.260"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>//div[@id='btn-Filter-PriceRange']</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20211024 11:54:04.260" endtime="20211024 11:54:04.962"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@id='btn-Filter-PriceRange']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211024 11:54:04.963" level="INFO">Clicking element '//div[@id='btn-Filter-PriceRange']'.</msg>
+<status status="PASS" starttime="20211024 11:54:04.962" endtime="20211024 11:54:05.537"/>
+</kw>
+<kw name="Wait Until Page Does Not Contain" library="SeleniumLibrary">
+<arg>กรุณารอสักครู่</arg>
+<doc>Waits until ``text`` disappears from the current page.</doc>
+<status status="PASS" starttime="20211024 11:54:05.537" endtime="20211024 11:54:07.026"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>//div[@class='knEvI']</arg>
+<arg>ค้นพบสินค้า</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20211024 11:54:07.026" endtime="20211024 11:54:07.463"/>
+</kw>
+<kw name="Calling Search API">
+<var>${total}</var>
+<arg>${49}</arg>
+<arg>ปากกา</arg>
+<arg>109</arg>
+<arg>ควอนตั้ม</arg>
+<arg>4-50</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>x-store-code</arg>
+<arg>th</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211024 11:54:07.464" level="INFO">${headers} = {'Content-Type': 'application/json', 'x-store-code': 'th'}</msg>
+<status status="PASS" starttime="20211024 11:54:07.464" endtime="20211024 11:54:07.464"/>
+</kw>
+<kw name="Create Parameters" library="custom">
+<var>${parameters}</var>
+<arg>${search_query}</arg>
+<arg>${category_id}</arg>
+<arg>${brand_name}</arg>
+<arg>${price_range}</arg>
+<msg timestamp="20211024 11:54:07.464" level="INFO">${parameters} = searchQuery=ปากกา&amp;category_id=109&amp;brand_name=ควอนตั้ม&amp;priceFrom=4&amp;priceTo=50&amp;visibility=4</msg>
+<status status="PASS" starttime="20211024 11:54:07.464" endtime="20211024 11:54:07.465"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${endpoint_api_url}/search/products</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${parameters}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211024 11:54:07.948" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;priceFrom=4&amp;priceTo=50&amp;visibility=4 
+ path_url=/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;priceFrom=4&amp;priceTo=50&amp;visibility=4 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-store-code': 'th'} 
+ body=None 
+ </msg>
+<msg timestamp="20211024 11:54:07.949" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;priceFrom=4&amp;priceTo=50&amp;visibility=4 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"fb9c7-vDuKRUT6B1WRdmx2nKUgPY0X+LA"', 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=62', 'Expires': 'Sun, 24 Oct 2021 04:55:09 GMT', 'Date': 'Sun, 24 Oct 2021 04:54:07 GMT', 'Content-Length': '61107', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":49,"products":[{"id":73886,"type_id":"simple","name":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี ควอนตั้ม Juice","brand_name":"ควอนตั้ม","small_image":"/1/0/1009054.jpg","image":"/1/0/1009054.jpg","thumbnail":"/1/0/1009054.jpg","url_key":"quantum-juice-ball-point-pen-ofm1009054","attribute_set_id":677,"visibility":4,"status":1,"is_returnable":"2","category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":107,"name":"อุปกรณ์สำนักงาน","level":2,"parent_id":2,"url_key":"office-supplies","url_path":"office-supplies","is_parent":true},{"category_id":108,"name":"ปากกา &amp; หมึกเติม","level":3,"parent_id":107,"url_key":"pens-refills","url_path":"office-supplies/pens-refills","is_parent":true},{"category_id":109,"name":"ปากกาลูกลื่น","level":4,"parent_id":108,"url_key":"ball-pen","url_path":"office-supplies/pens-refills/ball-pen","is_parent":true},{"category_id":1501,"name":"promotions","level":2,"parent_id":2,"url_key":"promotions","url_path":"promotions","is_parent":true},{"category_id":5462,"level":2,"parent_id":2,"url_key":"promotionsofficemate-global-cateogory","url_path":"promotionsofficemate-global-cateogory"},{"category_id":5463,"name":"Promotions","level":3,"parent_id":5462,"url_key":"promotions","url_path":"promotionsofficemate-global-cateogory/promotions"},{"category_id":5526,"name":"FEEL-FIN-NEW-TERM-SIAMWALLA","level":3,"parent_id":1501,"url_key":"feel-fin-new-term-siamwalla-1may-31jul21","url_path":"promotions/feel-fin-new-term-siamwalla-1may-31jul21","is_parent":true},{"category_id":6108,"name":"INFINITE-ONLINE-SELLER","level":4,"parent_id":5463,"url_key":"infinite-online-seller","url_path":"promotionsofficemate-global-cateogory/promotions/infinite-online-seller","is_parent":true},{"category_id":6114,"name":"INFINITE-ONLINE-SELLER-SIAMWALLA","level":4,"parent_id":5463,"url_key":"infinite-online-seller-siamwalla","url_path":"promotionsofficemate-global-cateogory/promotions/infinite-online-seller-siamwalla","is_parent":true},{"category_id":6153,"name":"ลดแรง! แถมเพียบ! ไอเทมเพื่อการเรียน","level":3,"parent_id":1501,"url_key":"school-supply-1-31aug21","url_path":"promotions/school-supply-1-31aug21","is_parent":true},{"category_id":6313,"name":"ทั้งลด ทั้งแถม! | อุปกรณ์สำนักงาน แบรนด์ Elephant, Quantum, Master Art","level":3,"parent_id":1501,"url_key":"siamwalla-1-30sep21","url_path":"promotions/siamwalla-1-30sep21","is_parent":true},{"category_id":6349,"name":"ลดสูงสุด 81%* ลดเพิ่ม! 10%* ฟรี* ปากกาเจล","level":3,"parent_id":1501,"url_key":"school-supply-1-30sep21","url_path":"promotions/school-supply-1-30sep21","is_parent":true},{"category_id":6383,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-1-30sep21","url_path":"promotions/grand-sale-office-supplies-1-30sep21","is_parent":true},{"category_id":6388,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน แบรนด์ Siamwalla","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-siamwalla-1-30sep21","url_path":"promotions/grand-sale-office-supplies-siamwalla-1-30sep21","is_parent":true},{"category_id":6628,"name":"STATIONERY-1-31OCT21","level":3,"parent_id":1501,"url_key":"stationery-1-31oct21","url_path":"promotions/stationery-1-31oct21","is_parent":true},{"category_id":6634,"name":"ทั้งลด ทั้งแถม! | อุปกรณ์สำนักงาน แบรนด์ Elephant, Quantum, Master Art","level":3,"parent_id":1501,"url_key":"siamwalla-1-31oct21","url_path":"promotions/siamwalla-1-31oct21","is_parent":true},{"category_id":6680,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-SIAMWALLA-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-siamwalla-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-siamwalla-1-31oct21","is_parent":true},{"category_id":6682,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-1-31oct21","is_parent":true}],"price":22,"tier_prices":[{"price":19,"original_price":22,"customer_group_id":0,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":1,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":2,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":3,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":4,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":5,"is_discount":true}],"special_price":19,"special_from_date":"2021-10-01T00:00:00","special_to_date":"2021-10-31T23:59:59","stock":{"qty":867,"is_in_stock":true},"score":99983,"custom_attributes_option":[{"attribute_code":"small_image","value":"/1/0/1009054.jpg","position":0},{"attribute_code":"special_from_date","value":"2021-10-01 00:00:00","position":0},{"attribute_code":"in_xml_sitemap","value":"Include in XML Sitemap","position":0},{"attribute_code":"swatch_image","value":"no_selection","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"percent_discount","value":14,"position":0},{"attribute_code":"price_inc_tax","value":22,"position":0},{"attribute_code":"created_at","value":"2019-12-24 07:21:10","position":0},{"attribute_code":"installment_plans","value":["5"],"position":0},{"attribute_code":"special_price","value":19,"position":0},{"attribute_code":"unit","value":"ด้าม","position":0},{"attribute_code":"standard_color_dp","value":"คละสี","position":0},{"attribute_code":"writting_color_dp","value":"น้ำเงิน","position":0},{"attribute_code":"online_price_enabled","value":"Online Price Enabled","position":0},{"attribute_code":"ts_dimensions_width","value":30,"position":0},{"attribute_code":"shipment_group_id","value":"MKP_2022","position":0},{"attribute_code":"ofm_product_type","value":15,"position":0},{"attribute_code":"tip_types_dp","value":"1 หัว","position":0},{"attribute_code":"weight","value":12,"position":0},{"attribute_code":"description","value":"&lt;ul&gt;\r\n&lt;li&gt;ปากกาลูกลื่น แบบกด&lt;/li&gt;\r\n&lt;li&gt;น้ำหมึกความหนืดต่ำ เขียนลื่น&lt;/li&gt;\r\n&lt;li&gt;หมึกไหลสม่ำเสมอ เส้นไม่ขาดตอน&lt;/li&gt;\r\n&lt;li&gt;หัวปากกาผลิตจากนิกเกิลซิลเวอร์ แข็งแรง&lt;/li&gt;\r\n&lt;li&gt;บริเวณด้ามจับสัมผัสยางนุ่ม จับถนัดมือ&lt;/li&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.5 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;li&gt;จำนวน 1 ด้าม&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"pen_line_point_dp","value":"0.5 มม.","position":0},{"attribute_code":"ts_dimensions_length","value":185,"position":0},{"attribute_code":"body_material_dp","value":"พลาสติก","position":0},{"attribute_code":"special_expires_at","value":"2021-10-31 23:59:59","position":0},{"attribute_code":"ts_dimensions_height","value":12,"position":0},{"attribute_code":"updated_at","value":"2021-10-01 06:00:56","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"barcode","value":"8851907269081","position":0},{"attribute_code":"image","value":"/1/0/1009054.jpg","position":0},{"attribute_code":"price_discount","value":13.62,"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"&lt;p&gt;ปากกาลูกลื่น แบบกด Quantum Juice หมึกสีน้ำเงิน ด้ามคละสี ขนาด 0.5 มม. หัวปากกาผลิตจาก Nickel Silver คุณภาพดี แข็งแรง ทนทาน ทั้งยังควบคุมการไหลของน้ำหมึกได้อย่างสม่ำเสมอ น้ำหมึกความหนืดต่ำ ให้คุณเขียนได้ลื่น เส้นไม่ขาดตอน มี Rubber Grip ให้สัมผัสนุ่ม จับได้กระชับมือมากยิ่งขึ้น ให้ทุกการเขียนจดบันทึก สะดวก รวดเร็ว มีคลิปหนีบที่ปลายปลอก สะดวกพกพาง่าย&lt;/p&gt;","position":0},{"attribute_code":"special_to_date","value":"2021-10-31 23:59:59","position":0},{"attribute_code":"piece_or_pack","value":"1 ขิ้น","position":0},{"attribute_code":"is_returnable","value":"2","position":0},{"attribute_code":"brand_name","value":"ควอนตั้ม","position":0},{"attribute_code":"search_keywords","value":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี ควอนตั้ม Juice Quantum Juice Ball  Point Pen","position":0},{"attribute_code":"special_price_inc_tax","value":19,"position":0},{"attribute_code":"url_key","value":"quantum-juice-ball-point-pen-ofm1009054","values":["quantum-juice-ball-point-pen-ofm1009054"],"position":0},{"attribute_code":"package_dp","value":"ชิ้น","position":0},{"attribute_code":"product_group","value":"A","position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"sold_qty","value":9,"position":0},{"attribute_code":"options_container","value":"Block after Info Column","position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"thumbnail","value":"/1/0/1009054.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"name","label":"Product Name","value":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี ควอนตั้ม Juice"},{"attribute_code":"image","name":"image","label":"Base","value":"/1/0/1009054.jpg"},{"attribute_code":"small_image","name":"small_image","label":"Small","value":"/1/0/1009054.jpg"},{"attribute_code":"thumbnail","name":"thumbnail","label":"Thumbnail","value":"/1/0/1009054.jpg"},{"attribute_code":"options_container","name":"options_container","label":"Display Product Options In","value":"container2"},{"attribute_code":"url_key","name":"url_key","label":"URL Key","value":"quantum-juice-ball-point-pen-ofm1009054"},{"attribute_code":"msrp_display_actual_price_type","name":"msrp_display_actual_price_type","label":"Display Actual Price","value":"0"},{"attribute_code":"gift_message_available","name":"gift_message_available","label":"Allow Gift Message","value":"0"},{"attribute_code":"gift_wrapping_available","name":"gift_wrapping_available","label":"Allow Gift Wrapping","value":"0"},{"attribute_code":"is_returnable","name":"is_returnable","label":"Enable RMA","value":"2"},{"attribute_code":"swatch_image","name":"swatch_image","label":"Swatch","value":"no_selection"},{"attribute_code":"installment_plans","name":"installment_plans","label":"Installment Plans","value":"5"},{"attribute_code":"unit","name":"unit","label":"Unit","value":"... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20211024 11:54:07.949" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211024 11:54:07.465" endtime="20211024 11:54:07.949"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_total}</arg>
+<arg>${response.json()['products']['total_count']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20211024 11:54:07.949" endtime="20211024 11:54:07.964"/>
+</kw>
+<msg timestamp="20211024 11:54:07.974" level="INFO">${total} = 49</msg>
+<status status="PASS" starttime="20211024 11:54:07.463" endtime="20211024 11:54:07.974"/>
+</kw>
+<kw name="Number To String" library="custom">
+<var>${expected}</var>
+<arg>${total}</arg>
+<msg timestamp="20211024 11:54:07.974" level="INFO">${expected} = 49</msg>
+<status status="PASS" starttime="20211024 11:54:07.974" endtime="20211024 11:54:07.974"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>//div[@class='knEvI']</arg>
+<arg>${expected}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20211024 11:54:08.411" level="INFO">Element '//div[@class='knEvI']' contains text '49'.</msg>
+<status status="PASS" starttime="20211024 11:54:07.975" endtime="20211024 11:54:08.411"/>
+</kw>
+<tag>UI</tag>
+<status status="PASS" starttime="20211024 11:54:02.130" endtime="20211024 11:54:08.411"/>
+</test>
+<test id="s1-s1-t5" name="API: Search function with Search Query">
+<kw name="Calling Search API">
+<arg>${3481}</arg>
+<arg>ปากกา</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>x-store-code</arg>
+<arg>th</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211024 11:54:08.413" level="INFO">${headers} = {'Content-Type': 'application/json', 'x-store-code': 'th'}</msg>
+<status status="PASS" starttime="20211024 11:54:08.413" endtime="20211024 11:54:08.413"/>
+</kw>
+<kw name="Create Parameters" library="custom">
+<var>${parameters}</var>
+<arg>${search_query}</arg>
+<arg>${category_id}</arg>
+<arg>${brand_name}</arg>
+<arg>${price_range}</arg>
+<msg timestamp="20211024 11:54:08.414" level="INFO">${parameters} = searchQuery=ปากกา&amp;visibility=4</msg>
+<status status="PASS" starttime="20211024 11:54:08.413" endtime="20211024 11:54:08.414"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${endpoint_api_url}/search/products</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${parameters}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211024 11:54:08.636" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;visibility=4 
+ path_url=/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;visibility=4 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-store-code': 'th'} 
+ body=None 
+ </msg>
+<msg timestamp="20211024 11:54:08.638" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;visibility=4 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"214eee-3qPgvU+MgkiWmkwNgxOYs7diYmc"', 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=120', 'Expires': 'Sun, 24 Oct 2021 04:56:08 GMT', 'Date': 'Sun, 24 Oct 2021 04:54:08 GMT', 'Content-Length': '167323', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":3481,"products":[{"id":119012,"type_id":"simple","name":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม.","brand_name":"ตราม้า","small_image":"/1/0/1010202.jpg","image":"/1/0/1010202.jpg","thumbnail":"/1/0/1010202.jpg","url_key":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202","attribute_set_id":677,"visibility":4,"status":1,"is_returnable":"2","category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":107,"name":"อุปกรณ์สำนักงาน","level":2,"parent_id":2,"url_key":"office-supplies","url_path":"office-supplies","is_parent":true},{"category_id":108,"name":"ปากกา &amp; หมึกเติม","level":3,"parent_id":107,"url_key":"pens-refills","url_path":"office-supplies/pens-refills","is_parent":true},{"category_id":109,"name":"ปากกาลูกลื่น","level":4,"parent_id":108,"url_key":"ball-pen","url_path":"office-supplies/pens-refills/ball-pen","is_parent":true},{"category_id":1501,"name":"promotions","level":2,"parent_id":2,"url_key":"promotions","url_path":"promotions","is_parent":true},{"category_id":6153,"name":"ลดแรง! แถมเพียบ! ไอเทมเพื่อการเรียน","level":3,"parent_id":1501,"url_key":"school-supply-1-31aug21","url_path":"promotions/school-supply-1-31aug21","is_parent":true},{"category_id":6349,"name":"ลดสูงสุด 81%* ลดเพิ่ม! 10%* ฟรี* ปากกาเจล","level":3,"parent_id":1501,"url_key":"school-supply-1-30sep21","url_path":"promotions/school-supply-1-30sep21","is_parent":true},{"category_id":6383,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-1-30sep21","url_path":"promotions/grand-sale-office-supplies-1-30sep21","is_parent":true},{"category_id":6386,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน แบรนด์ Nanmee","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-nanmee-1-30sep21","url_path":"promotions/grand-sale-office-supplies-nanmee-1-30sep21","is_parent":true},{"category_id":6628,"name":"STATIONERY-1-31OCT21","level":3,"parent_id":1501,"url_key":"stationery-1-31oct21","url_path":"promotions/stationery-1-31oct21","is_parent":true},{"category_id":6677,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-NANMEE-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-nanmee-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-nanmee-1-31oct21","is_parent":true},{"category_id":6682,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-1-31oct21","is_parent":true}],"price":19,"tier_prices":[{"price":19,"original_price":19,"customer_group_id":0,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":1,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":2,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":3,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":4,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":5,"is_discount":false}],"special_price":19,"special_from_date":"2021-09-29T00:00:00","stock":{"qty":184,"is_in_stock":true},"score":100000,"custom_attributes_option":[{"attribute_code":"small_image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"special_from_date","value":"2021-09-29 00:00:00","position":0},{"attribute_code":"in_xml_sitemap","value":"Include in XML Sitemap","position":0},{"attribute_code":"swatch_image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"ofm_green_product","value":"สินค้าทั่วไป","position":0},{"attribute_code":"price_inc_tax","value":19,"position":0},{"attribute_code":"created_at","value":"2020-10-19 07:20:39","position":0},{"attribute_code":"special_price","value":19,"position":0},{"attribute_code":"unit","value":"ด้าม","position":0},{"attribute_code":"standard_color_dp","value":"คละสี","position":0},{"attribute_code":"writting_color_dp","value":"น้ำเงิน","position":0},{"attribute_code":"ts_dimensions_width","value":15,"position":0},{"attribute_code":"shipment_group_id","value":"MKP_2022","position":0},{"attribute_code":"ofm_product_type","value":15,"position":0},{"attribute_code":"tip_types_dp","value":"1 หัว","position":0},{"attribute_code":"weight","value":7,"position":0},{"attribute_code":"description","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกพิเศษ ทำให้เขียนลื่นขึ้น&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"pen_line_point_dp","value":"0.7 มม.","position":0},{"attribute_code":"ts_dimensions_length","value":145,"position":0},{"attribute_code":"ts_dimensions_height","value":15,"position":0},{"attribute_code":"updated_at","value":"2021-09-29 03:31:47","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"barcode","value":"8858729260500","position":0},{"attribute_code":"image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"price_discount","value":0,"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัว 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"piece_or_pack","value":"1 ขิ้น","position":0},{"attribute_code":"is_returnable","value":"2","position":0},{"attribute_code":"brand_name","value":"ตราม้า","position":0},{"attribute_code":"search_keywords","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม. Horse Ballpoint Pen H-750 Ink Blue Assorted Color 0.7 mm.","position":0},{"attribute_code":"special_price_inc_tax","value":19,"position":0},{"attribute_code":"url_key","value":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202","values":["ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202"],"position":0},{"attribute_code":"package_dp","value":"ชิ้น","position":0},{"attribute_code":"product_group","value":"A","position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"sold_qty","value":3,"position":0},{"attribute_code":"options_container","value":"Block after Info Column","position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"thumbnail","value":"/1/0/1010202.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"name","label":"Product Name","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม."},{"attribute_code":"image","name":"image","label":"Base","value":"/1/0/1010202.jpg"},{"attribute_code":"small_image","name":"small_image","label":"Small","value":"/1/0/1010202.jpg"},{"attribute_code":"thumbnail","name":"thumbnail","label":"Thumbnail","value":"/1/0/1010202.jpg"},{"attribute_code":"options_container","name":"options_container","label":"Display Product Options In","value":"container2"},{"attribute_code":"url_key","name":"url_key","label":"URL Key","value":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202"},{"attribute_code":"msrp_display_actual_price_type","name":"msrp_display_actual_price_type","label":"Display Actual Price","value":"0"},{"attribute_code":"gift_message_available","name":"gift_message_available","label":"Allow Gift Message","value":"0"},{"attribute_code":"gift_wrapping_available","name":"gift_wrapping_available","label":"Allow Gift Wrapping","value":"0"},{"attribute_code":"is_returnable","name":"is_returnable","label":"Enable RMA","value":"2"},{"attribute_code":"swatch_image","name":"swatch_image","label":"Swatch","value":"/1/0/1010202.jpg"},{"attribute_code":"unit","name":"unit","label":"Unit","value":"ด้าม"},{"attribute_code":"discount_code","name":"discount_code","label":"DISCOUNT CODE","value":"0"},{"attribute_code":"barcode","name":"barcode","label":"Barcode","value":"8858729260500"},{"attribute_code":"product_group","name":"product_group","label":"Product Group","value":"a"},{"attribute_code":"search_keywords","name":"search_keywords","label":"ElasticSuite Search Keywords","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม. Horse Ballpoint Pen H-750 Ink Blue Assorted Color 0.7 mm."},{"attribute_code":"description","name":"description","label":"รายละเอียดทั้งหมด","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกพิเศษ ทำให้เขียนลื่นขึ้น&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;"},{"attribute_code":"short_description","name":"short_description","label":"รายละเอียด","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัว 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;"},{"attribute_code":"special_price","name":"special_price","label":"Special Price","value":"17.7600"},{"attribute_code":"weight","name":"weight","label":"น้ำหนัก","value":"7.0000"},{"attribute_code":"ts_dimensions_length","name":"ts_dimensions_length","label":"Length","value":"145.0000"},{"attribute_code":"ts_dimensions_width","name":"ts_dimensions_width","label":"Width","value":"15.0000"},{"attribute_code":"ts_dimensions_height","name":"ts_dimensions_height","label":"Height","value":"15.0000"},{"attribute_code":"delivery_surcharge_fee","name":"delivery_surcharge_fee","label":"Delivery Surcharge Fee","value":"0.0000"},{"attribute_code":"special_price_inc_tax","name":"special_price_inc_tax","label":"Special Price Include Tax","value":"19.0000"},{"attribute_code":"price_inc_tax","name":"price_inc_tax","label":"Price Include Tax","value":"19.0000"},{"attribute_code":"percent_discount","name":"percent_discount","label":"Percent Discount","value":"0.0000"},{"attribute_code":"special_from_date","name":"special_from_date","label":"Special Price From Date","value":"2021-09-28 17:00:00"},{"attribute_code":"special_to_date","name":"special_to_date","label":"Special Price To Date"},{"attribute_code":"special_expires_at","name":"special_expires_at","label":"Special Expires At"},{"attribute_code":"status","name":"status","label":"Enable Product","value":"1"},{"at... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20211024 11:54:08.638" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211024 11:54:08.414" endtime="20211024 11:54:08.638"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_total}</arg>
+<arg>${response.json()['products']['total_count']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20211024 11:54:08.639" endtime="20211024 11:54:08.659"/>
+</kw>
+<status status="PASS" starttime="20211024 11:54:08.412" endtime="20211024 11:54:08.678"/>
+</kw>
+<tag>API</tag>
+<status status="PASS" starttime="20211024 11:54:08.412" endtime="20211024 11:54:08.679"/>
+</test>
+<test id="s1-s1-t6" name="API: Search function with Search Query and Category">
+<kw name="Calling Search API">
+<arg>${576}</arg>
+<arg>ปากกา</arg>
+<arg>109</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>x-store-code</arg>
+<arg>th</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211024 11:54:08.682" level="INFO">${headers} = {'Content-Type': 'application/json', 'x-store-code': 'th'}</msg>
+<status status="PASS" starttime="20211024 11:54:08.681" endtime="20211024 11:54:08.682"/>
+</kw>
+<kw name="Create Parameters" library="custom">
+<var>${parameters}</var>
+<arg>${search_query}</arg>
+<arg>${category_id}</arg>
+<arg>${brand_name}</arg>
+<arg>${price_range}</arg>
+<msg timestamp="20211024 11:54:08.682" level="INFO">${parameters} = searchQuery=ปากกา&amp;category_id=109&amp;visibility=4</msg>
+<status status="PASS" starttime="20211024 11:54:08.682" endtime="20211024 11:54:08.682"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${endpoint_api_url}/search/products</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${parameters}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211024 11:54:08.887" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;visibility=4 
+ path_url=/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;visibility=4 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-store-code': 'th'} 
+ body=None 
+ </msg>
+<msg timestamp="20211024 11:54:08.889" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;visibility=4 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"1f231e-SVFYLKehNUPCtOZQ+17t/RCKzRw"', 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=120', 'Expires': 'Sun, 24 Oct 2021 04:56:08 GMT', 'Date': 'Sun, 24 Oct 2021 04:54:08 GMT', 'Content-Length': '135675', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":576,"products":[{"id":119012,"type_id":"simple","name":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม.","brand_name":"ตราม้า","small_image":"/1/0/1010202.jpg","image":"/1/0/1010202.jpg","thumbnail":"/1/0/1010202.jpg","url_key":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202","attribute_set_id":677,"visibility":4,"status":1,"is_returnable":"2","category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":107,"name":"อุปกรณ์สำนักงาน","level":2,"parent_id":2,"url_key":"office-supplies","url_path":"office-supplies","is_parent":true},{"category_id":108,"name":"ปากกา &amp; หมึกเติม","level":3,"parent_id":107,"url_key":"pens-refills","url_path":"office-supplies/pens-refills","is_parent":true},{"category_id":109,"name":"ปากกาลูกลื่น","level":4,"parent_id":108,"url_key":"ball-pen","url_path":"office-supplies/pens-refills/ball-pen","is_parent":true},{"category_id":1501,"name":"promotions","level":2,"parent_id":2,"url_key":"promotions","url_path":"promotions","is_parent":true},{"category_id":6153,"name":"ลดแรง! แถมเพียบ! ไอเทมเพื่อการเรียน","level":3,"parent_id":1501,"url_key":"school-supply-1-31aug21","url_path":"promotions/school-supply-1-31aug21","is_parent":true},{"category_id":6349,"name":"ลดสูงสุด 81%* ลดเพิ่ม! 10%* ฟรี* ปากกาเจล","level":3,"parent_id":1501,"url_key":"school-supply-1-30sep21","url_path":"promotions/school-supply-1-30sep21","is_parent":true},{"category_id":6383,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-1-30sep21","url_path":"promotions/grand-sale-office-supplies-1-30sep21","is_parent":true},{"category_id":6386,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน แบรนด์ Nanmee","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-nanmee-1-30sep21","url_path":"promotions/grand-sale-office-supplies-nanmee-1-30sep21","is_parent":true},{"category_id":6628,"name":"STATIONERY-1-31OCT21","level":3,"parent_id":1501,"url_key":"stationery-1-31oct21","url_path":"promotions/stationery-1-31oct21","is_parent":true},{"category_id":6677,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-NANMEE-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-nanmee-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-nanmee-1-31oct21","is_parent":true},{"category_id":6682,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-1-31oct21","is_parent":true}],"price":19,"tier_prices":[{"price":19,"original_price":19,"customer_group_id":0,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":1,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":2,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":3,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":4,"is_discount":false},{"price":19,"original_price":19,"customer_group_id":5,"is_discount":false}],"special_price":19,"special_from_date":"2021-09-29T00:00:00","stock":{"qty":184,"is_in_stock":true},"score":100000,"custom_attributes_option":[{"attribute_code":"small_image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"special_from_date","value":"2021-09-29 00:00:00","position":0},{"attribute_code":"in_xml_sitemap","value":"Include in XML Sitemap","position":0},{"attribute_code":"swatch_image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"ofm_green_product","value":"สินค้าทั่วไป","position":0},{"attribute_code":"price_inc_tax","value":19,"position":0},{"attribute_code":"created_at","value":"2020-10-19 07:20:39","position":0},{"attribute_code":"special_price","value":19,"position":0},{"attribute_code":"unit","value":"ด้าม","position":0},{"attribute_code":"standard_color_dp","value":"คละสี","position":0},{"attribute_code":"writting_color_dp","value":"น้ำเงิน","position":0},{"attribute_code":"ts_dimensions_width","value":15,"position":0},{"attribute_code":"shipment_group_id","value":"MKP_2022","position":0},{"attribute_code":"ofm_product_type","value":15,"position":0},{"attribute_code":"tip_types_dp","value":"1 หัว","position":0},{"attribute_code":"weight","value":7,"position":0},{"attribute_code":"description","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกพิเศษ ทำให้เขียนลื่นขึ้น&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"pen_line_point_dp","value":"0.7 มม.","position":0},{"attribute_code":"ts_dimensions_length","value":145,"position":0},{"attribute_code":"ts_dimensions_height","value":15,"position":0},{"attribute_code":"updated_at","value":"2021-09-29 03:31:47","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"barcode","value":"8858729260500","position":0},{"attribute_code":"image","value":"/1/0/1010202.jpg","position":0},{"attribute_code":"price_discount","value":0,"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัว 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"piece_or_pack","value":"1 ขิ้น","position":0},{"attribute_code":"is_returnable","value":"2","position":0},{"attribute_code":"brand_name","value":"ตราม้า","position":0},{"attribute_code":"search_keywords","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม. Horse Ballpoint Pen H-750 Ink Blue Assorted Color 0.7 mm.","position":0},{"attribute_code":"special_price_inc_tax","value":19,"position":0},{"attribute_code":"url_key","value":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202","values":["ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202"],"position":0},{"attribute_code":"package_dp","value":"ชิ้น","position":0},{"attribute_code":"product_group","value":"A","position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"sold_qty","value":3,"position":0},{"attribute_code":"options_container","value":"Block after Info Column","position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"thumbnail","value":"/1/0/1010202.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"name","label":"Product Name","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม."},{"attribute_code":"image","name":"image","label":"Base","value":"/1/0/1010202.jpg"},{"attribute_code":"small_image","name":"small_image","label":"Small","value":"/1/0/1010202.jpg"},{"attribute_code":"thumbnail","name":"thumbnail","label":"Thumbnail","value":"/1/0/1010202.jpg"},{"attribute_code":"options_container","name":"options_container","label":"Display Product Options In","value":"container2"},{"attribute_code":"url_key","name":"url_key","label":"URL Key","value":"ตราม้า-ปากกาลูกลื่น-0-7มม-น้ำเงินด้ามคละสี-ตราม้า-h-750-ofm1010202"},{"attribute_code":"msrp_display_actual_price_type","name":"msrp_display_actual_price_type","label":"Display Actual Price","value":"0"},{"attribute_code":"gift_message_available","name":"gift_message_available","label":"Allow Gift Message","value":"0"},{"attribute_code":"gift_wrapping_available","name":"gift_wrapping_available","label":"Allow Gift Wrapping","value":"0"},{"attribute_code":"is_returnable","name":"is_returnable","label":"Enable RMA","value":"2"},{"attribute_code":"swatch_image","name":"swatch_image","label":"Swatch","value":"/1/0/1010202.jpg"},{"attribute_code":"unit","name":"unit","label":"Unit","value":"ด้าม"},{"attribute_code":"discount_code","name":"discount_code","label":"DISCOUNT CODE","value":"0"},{"attribute_code":"barcode","name":"barcode","label":"Barcode","value":"8858729260500"},{"attribute_code":"product_group","name":"product_group","label":"Product Group","value":"a"},{"attribute_code":"search_keywords","name":"search_keywords","label":"ElasticSuite Search Keywords","value":"ปากกาลูกลื่น ตราม้า H-750 หมึกน้ำเงิน ด้ามคละสี 0.7 มม. Horse Ballpoint Pen H-750 Ink Blue Assorted Color 0.7 mm."},{"attribute_code":"description","name":"description","label":"รายละเอียดทั้งหมด","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกพิเศษ ทำให้เขียนลื่นขึ้น&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;"},{"attribute_code":"short_description","name":"short_description","label":"รายละเอียด","value":"&lt;ul&gt;\r\n&lt;li&gt;ขนาดหัว 0.7 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;/ul&gt;"},{"attribute_code":"special_price","name":"special_price","label":"Special Price","value":"17.7600"},{"attribute_code":"weight","name":"weight","label":"น้ำหนัก","value":"7.0000"},{"attribute_code":"ts_dimensions_length","name":"ts_dimensions_length","label":"Length","value":"145.0000"},{"attribute_code":"ts_dimensions_width","name":"ts_dimensions_width","label":"Width","value":"15.0000"},{"attribute_code":"ts_dimensions_height","name":"ts_dimensions_height","label":"Height","value":"15.0000"},{"attribute_code":"delivery_surcharge_fee","name":"delivery_surcharge_fee","label":"Delivery Surcharge Fee","value":"0.0000"},{"attribute_code":"special_price_inc_tax","name":"special_price_inc_tax","label":"Special Price Include Tax","value":"19.0000"},{"attribute_code":"price_inc_tax","name":"price_inc_tax","label":"Price Include Tax","value":"19.0000"},{"attribute_code":"percent_discount","name":"percent_discount","label":"Percent Discount","value":"0.0000"},{"attribute_code":"special_from_date","name":"special_from_date","label":"Special Price From Date","value":"2021-09-28 17:00:00"},{"attribute_code":"special_to_date","name":"special_to_date","label":"Special Price To Date"},{"attribute_code":"special_expires_at","name":"special_expires_at","label":"Special Expires At"},{"attribute_code":"status","name":"status","label":"Enable Product","value":"1"},{"att... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20211024 11:54:08.889" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211024 11:54:08.682" endtime="20211024 11:54:08.889"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_total}</arg>
+<arg>${response.json()['products']['total_count']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20211024 11:54:08.889" endtime="20211024 11:54:08.908"/>
+</kw>
+<status status="PASS" starttime="20211024 11:54:08.681" endtime="20211024 11:54:08.926"/>
+</kw>
+<tag>API</tag>
+<status status="PASS" starttime="20211024 11:54:08.681" endtime="20211024 11:54:08.927"/>
+</test>
+<test id="s1-s1-t7" name="API: Search function with Search Query, Category, and Brand Name">
+<kw name="Calling Search API">
+<arg>${100}</arg>
+<arg>ปากกา</arg>
+<arg>109</arg>
+<arg>ควอนตั้ม</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>x-store-code</arg>
+<arg>th</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211024 11:54:08.929" level="INFO">${headers} = {'Content-Type': 'application/json', 'x-store-code': 'th'}</msg>
+<status status="PASS" starttime="20211024 11:54:08.929" endtime="20211024 11:54:08.929"/>
+</kw>
+<kw name="Create Parameters" library="custom">
+<var>${parameters}</var>
+<arg>${search_query}</arg>
+<arg>${category_id}</arg>
+<arg>${brand_name}</arg>
+<arg>${price_range}</arg>
+<msg timestamp="20211024 11:54:08.930" level="INFO">${parameters} = searchQuery=ปากกา&amp;category_id=109&amp;brand_name=ควอนตั้ม&amp;visibility=4</msg>
+<status status="PASS" starttime="20211024 11:54:08.929" endtime="20211024 11:54:08.930"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${endpoint_api_url}/search/products</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${parameters}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211024 11:54:09.132" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;visibility=4 
+ path_url=/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;visibility=4 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-store-code': 'th'} 
+ body=None 
+ </msg>
+<msg timestamp="20211024 11:54:09.133" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;visibility=4 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"2041c9-COxphm+UTNW7DwBMYh2lEgVa8d0"', 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=120', 'Expires': 'Sun, 24 Oct 2021 04:56:08 GMT', 'Date': 'Sun, 24 Oct 2021 04:54:08 GMT', 'Content-Length': '119194', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":100,"products":[{"id":1478,"type_id":"simple","name":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี 50 ด้าม/แพ็ค ควอนตั้ม Skate 555","brand_name":"ควอนตั้ม","small_image":"/O/F/OFM1003465.jpg","image":"/O/F/OFM1003465.jpg","thumbnail":"/O/F/OFM1003465.jpg","url_key":"quantum-ปากกาลูกลื่น-0-5-มม-น้ำเงิน-แพ็ค50ด้าม-ควอนตั้ม-skate-555-ofm1003465","attribute_set_id":677,"visibility":4,"status":1,"is_returnable":"2","category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":107,"name":"อุปกรณ์สำนักงาน","level":2,"parent_id":2,"url_key":"office-supplies","url_path":"office-supplies","is_parent":true},{"category_id":108,"name":"ปากกา &amp; หมึกเติม","level":3,"parent_id":107,"url_key":"pens-refills","url_path":"office-supplies/pens-refills","is_parent":true},{"category_id":109,"name":"ปากกาลูกลื่น","level":4,"parent_id":108,"url_key":"ball-pen","url_path":"office-supplies/pens-refills/ball-pen","is_parent":true},{"category_id":1501,"name":"promotions","level":2,"parent_id":2,"url_key":"promotions","url_path":"promotions","is_parent":true},{"category_id":5462,"level":2,"parent_id":2,"url_key":"promotionsofficemate-global-cateogory","url_path":"promotionsofficemate-global-cateogory"},{"category_id":5463,"name":"Promotions","level":3,"parent_id":5462,"url_key":"promotions","url_path":"promotionsofficemate-global-cateogory/promotions"},{"category_id":5526,"name":"FEEL-FIN-NEW-TERM-SIAMWALLA","level":3,"parent_id":1501,"url_key":"feel-fin-new-term-siamwalla-1may-31jul21","url_path":"promotions/feel-fin-new-term-siamwalla-1may-31jul21","is_parent":true},{"category_id":6108,"name":"INFINITE-ONLINE-SELLER","level":4,"parent_id":5463,"url_key":"infinite-online-seller","url_path":"promotionsofficemate-global-cateogory/promotions/infinite-online-seller","is_parent":true},{"category_id":6114,"name":"INFINITE-ONLINE-SELLER-SIAMWALLA","level":4,"parent_id":5463,"url_key":"infinite-online-seller-siamwalla","url_path":"promotionsofficemate-global-cateogory/promotions/infinite-online-seller-siamwalla","is_parent":true},{"category_id":6153,"name":"ลดแรง! แถมเพียบ! ไอเทมเพื่อการเรียน","level":3,"parent_id":1501,"url_key":"school-supply-1-31aug21","url_path":"promotions/school-supply-1-31aug21","is_parent":true},{"category_id":6313,"name":"ทั้งลด ทั้งแถม! | อุปกรณ์สำนักงาน แบรนด์ Elephant, Quantum, Master Art","level":3,"parent_id":1501,"url_key":"siamwalla-1-30sep21","url_path":"promotions/siamwalla-1-30sep21","is_parent":true},{"category_id":6349,"name":"ลดสูงสุด 81%* ลดเพิ่ม! 10%* ฟรี* ปากกาเจล","level":3,"parent_id":1501,"url_key":"school-supply-1-30sep21","url_path":"promotions/school-supply-1-30sep21","is_parent":true},{"category_id":6383,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-1-30sep21","url_path":"promotions/grand-sale-office-supplies-1-30sep21","is_parent":true},{"category_id":6388,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน แบรนด์ Siamwalla","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-siamwalla-1-30sep21","url_path":"promotions/grand-sale-office-supplies-siamwalla-1-30sep21","is_parent":true},{"category_id":6628,"name":"STATIONERY-1-31OCT21","level":3,"parent_id":1501,"url_key":"stationery-1-31oct21","url_path":"promotions/stationery-1-31oct21","is_parent":true},{"category_id":6634,"name":"ทั้งลด ทั้งแถม! | อุปกรณ์สำนักงาน แบรนด์ Elephant, Quantum, Master Art","level":3,"parent_id":1501,"url_key":"siamwalla-1-31oct21","url_path":"promotions/siamwalla-1-31oct21","is_parent":true},{"category_id":6680,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-SIAMWALLA-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-siamwalla-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-siamwalla-1-31oct21","is_parent":true},{"category_id":6682,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-1-31oct21","is_parent":true}],"price":199,"tier_prices":[{"price":170,"original_price":199,"customer_group_id":0,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":1,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":2,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":3,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":4,"is_discount":true},{"price":170,"original_price":199,"customer_group_id":5,"is_discount":true}],"special_price":170,"special_from_date":"2021-10-01T00:00:00","special_to_date":"2021-10-31T23:59:59","stock":{"qty":194,"is_in_stock":true},"score":99998,"custom_attributes_option":[{"attribute_code":"small_image","value":"/O/F/OFM1003465.jpg","position":0},{"attribute_code":"special_from_date","value":"2021-10-01 00:00:00","position":0},{"attribute_code":"in_xml_sitemap","value":"Include in XML Sitemap","position":0},{"attribute_code":"swatch_image","value":"no_selection","position":0},{"attribute_code":"online_from_date","value":"2019-04-25 04:00:00","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"ofm_green_product","value":"สินค้าทั่วไป","position":0},{"attribute_code":"percent_discount","value":15,"position":0},{"attribute_code":"flash_deal_from","value":"2021-07-11 17:00:00","position":0},{"attribute_code":"price_inc_tax","value":199,"position":0},{"attribute_code":"online_price","value":157.94,"position":0},{"attribute_code":"created_at","value":"2018-07-16 14:26:13","position":0},{"attribute_code":"installment_plans","value":["5"],"position":0},{"attribute_code":"special_price","value":170,"position":0},{"attribute_code":"unit","value":"แพ็ค","position":0},{"attribute_code":"standard_color_dp","value":"คละสี","position":0},{"attribute_code":"writting_color_dp","value":"น้ำเงิน","position":0},{"attribute_code":"online_price_enabled","value":"Online Price Enabled","position":0},{"attribute_code":"ts_dimensions_width","value":110,"position":0},{"attribute_code":"shipment_group_id","value":"MKP_2022","position":0},{"attribute_code":"ofm_product_type","value":15,"position":0},{"attribute_code":"tip_types_dp","value":"1 หัว","position":0},{"attribute_code":"weight","value":405,"position":0},{"attribute_code":"description","value":"&lt;ul&gt;\r\n&lt;li&gt;ปากกาลูกลื่นแบบกด&lt;/li&gt;\r\n&lt;li&gt;หัวปากกาผลิตจาก Nickel Silver แข็งแรง ทนทาน&lt;/li&gt;\r\n&lt;li&gt;มีความคงทนและให้เส้นสม่ำเสมอ&lt;/li&gt;\r\n&lt;li&gt;เขียนลื่น ลดการใช้งานขณะเขียน&lt;/li&gt;\r\n&lt;li&gt;มีคลิปหนีบ เพื่อความสะดวกในการพกพา&lt;/li&gt;\r\n&lt;li&gt;กริปยางนุ่ม จับกระชับมือ&lt;/li&gt;\r\n&lt;li&gt;สีด้าม : คละสี&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.5 มม.&lt;/li&gt;\r\n&lt;li&gt;บรรจุ 50 ด้าม/แพ็ค&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"pen_line_point_dp","value":"0.5 มม.","position":0},{"attribute_code":"online_price_inc_tax","value":169,"position":0},{"attribute_code":"flash_deal_position","value":38,"position":0},{"attribute_code":"ts_dimensions_length","value":110,"position":0},{"attribute_code":"online_to_date","value":"2019-05-26 03:59:00","position":0},{"attribute_code":"special_expires_at","value":"2021-10-31 23:59:59","position":0},{"attribute_code":"ts_dimensions_height","value":180,"position":0},{"attribute_code":"updated_at","value":"2021-10-01 05:25:52","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"barcode","value":"8851907241223","position":0},{"attribute_code":"image","value":"/O/F/OFM1003465.jpg","position":0},{"attribute_code":"product_flag","value":"ออนไลน์เท่านั้น","position":0},{"attribute_code":"price_discount","value":14.57,"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"&lt;p&gt;ปากกาลูกลื่น ควอนตั้ม Skate 555 หมึกสีน้ำเงิน ชนิดกด ขนาด 0.5 มม. หัวปากกาผลิตจาก Nickel Silver และหัวบอล Tungsten Carbide แข็งแรง ทนทาน อีกทั้งยังควบคุมการไหลของหมึกได้อย่างสม่ำเสมอ ทำให้เส้นหมึกไม่ขาดตอน น้ำหมึกเจลโล่บอลมีความหนืดน้อย (Low Viscosity Ink) เขียนได้ลื่นต่อเนื่อง แห้งไว ไม่ไหลเยิ้มหลังใช้งาน เหมาะสำหรับจดบันทึกการประชุม หรือจดรายงานสำคัญต่างๆ ตัวด้ามจับหุ้มด้วยยางนิ่มบริเวณ Grip Zone จับได้กระชับมือมากยิ่งขึ้นขณะเขียน บรรจุ 50 ด้าม/แพ็ค&lt;/p&gt;","position":0},{"attribute_code":"special_to_date","value":"2021-10-31 23:59:59","position":0},{"attribute_code":"piece_or_pack","value":"50 ขิ้น","position":0},{"attribute_code":"is_returnable","value":"2","position":0},{"attribute_code":"brand_name","value":"ควอนตั้ม","position":0},{"attribute_code":"meta_keyword","value":"ปากกาลูกลื่น 0.5มม. น้ำเงิน 50ด้าม ควอนตั้ม Skate 555","position":0},{"attribute_code":"search_keywords","value":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี 50 ด้าม/แพ็ค ควอนตั้ม Skate 555 Quantum Skate 555 Ball Pen. 0.5 mm. Blue Ink. Assorted Colors. 50 Pcs/Pack","position":0},{"attribute_code":"is_promotion","value":"Is Promotion","position":0},{"attribute_code":"special_price_inc_tax","value":170,"position":0},{"attribute_code":"url_key","value":"quantum-ปากกาลูกลื่น-0-5-มม-น้ำเงิน-แพ็ค50ด้าม-ควอนตั้ม-skate-555-ofm1003465","values":["quantum-ปากกาลูกลื่น-0-5-มม-น้ำเงิน-แพ็ค50ด้าม-ควอนตั้ม-skate-555-ofm1003465"],"position":0},{"attribute_code":"ranking","value":0.0334,"position":0},{"attribute_code":"package_dp","value":"แพ็ค","position":0},{"attribute_code":"product_group","value":"A","position":0},{"attribute_code":"flash_deal_to","value":"2021-07-18 16:59:00","position":0},{"attribute_code":"flash_deal_sold_qty","value":34,"position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"sold_qty","value":42,"position":0},{"attribute_code":"options_container","value":"Block after Info Column","position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"flash_deal_qty","value":9999,"position":0},{"attribute_code":"thumbnail","value":"/O/F/OFM1003465.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"nam... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20211024 11:54:09.134" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211024 11:54:08.930" endtime="20211024 11:54:09.134"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_total}</arg>
+<arg>${response.json()['products']['total_count']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20211024 11:54:09.134" endtime="20211024 11:54:09.159"/>
+</kw>
+<status status="PASS" starttime="20211024 11:54:08.928" endtime="20211024 11:54:09.177"/>
+</kw>
+<tag>API</tag>
+<status status="PASS" starttime="20211024 11:54:08.928" endtime="20211024 11:54:09.178"/>
+</test>
+<test id="s1-s1-t8" name="API: Search function with Search Query, Category, Brand Name, and Price Range">
+<kw name="Calling Search API">
+<arg>${49}</arg>
+<arg>ปากกา</arg>
+<arg>109</arg>
+<arg>ควอนตั้ม</arg>
+<arg>4-50</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<arg>x-store-code</arg>
+<arg>th</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20211024 11:54:09.181" level="INFO">${headers} = {'Content-Type': 'application/json', 'x-store-code': 'th'}</msg>
+<status status="PASS" starttime="20211024 11:54:09.180" endtime="20211024 11:54:09.181"/>
+</kw>
+<kw name="Create Parameters" library="custom">
+<var>${parameters}</var>
+<arg>${search_query}</arg>
+<arg>${category_id}</arg>
+<arg>${brand_name}</arg>
+<arg>${price_range}</arg>
+<msg timestamp="20211024 11:54:09.181" level="INFO">${parameters} = searchQuery=ปากกา&amp;category_id=109&amp;brand_name=ควอนตั้ม&amp;priceFrom=4&amp;priceTo=50&amp;visibility=4</msg>
+<status status="PASS" starttime="20211024 11:54:09.181" endtime="20211024 11:54:09.181"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${endpoint_api_url}/search/products</arg>
+<arg>headers=${headers}</arg>
+<arg>params=${parameters}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20211024 11:54:09.350" level="INFO">GET Request : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;priceFrom=4&amp;priceTo=50&amp;visibility=4 
+ path_url=/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;priceFrom=4&amp;priceTo=50&amp;visibility=4 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-store-code': 'th'} 
+ body=None 
+ </msg>
+<msg timestamp="20211024 11:54:09.351" level="INFO">GET Response : url=https://www.officemate.co.th/api/search/products?searchQuery=%E0%B8%9B%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2&amp;category_id=109&amp;brand_name=%E0%B8%84%E0%B8%A7%E0%B8%AD%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%A1&amp;priceFrom=4&amp;priceTo=50&amp;visibility=4 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json; charset=utf-8', 'X-Powered-By': 'Express', 'x-frame-options': 'SAMEORIGIN', 'x-xss-protection': '1; mode=block', 'ETag': 'W/"fb9c7-vDuKRUT6B1WRdmx2nKUgPY0X+LA"', 'Content-Encoding': 'gzip', 'Cache-Control': 'public, max-age=60', 'Expires': 'Sun, 24 Oct 2021 04:55:09 GMT', 'Date': 'Sun, 24 Oct 2021 04:54:09 GMT', 'Content-Length': '61107', 'Connection': 'keep-alive', 'Vary': 'Accept-Encoding', 'Server-Timing': 'cdn-cache; desc=HIT, edge; dur=1'} 
+ body={"products":{"total_count":49,"products":[{"id":73886,"type_id":"simple","name":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี ควอนตั้ม Juice","brand_name":"ควอนตั้ม","small_image":"/1/0/1009054.jpg","image":"/1/0/1009054.jpg","thumbnail":"/1/0/1009054.jpg","url_key":"quantum-juice-ball-point-pen-ofm1009054","attribute_set_id":677,"visibility":4,"status":1,"is_returnable":"2","category":[{"category_id":2,"level":1,"parent_id":1,"url_key":"default-category"},{"category_id":107,"name":"อุปกรณ์สำนักงาน","level":2,"parent_id":2,"url_key":"office-supplies","url_path":"office-supplies","is_parent":true},{"category_id":108,"name":"ปากกา &amp; หมึกเติม","level":3,"parent_id":107,"url_key":"pens-refills","url_path":"office-supplies/pens-refills","is_parent":true},{"category_id":109,"name":"ปากกาลูกลื่น","level":4,"parent_id":108,"url_key":"ball-pen","url_path":"office-supplies/pens-refills/ball-pen","is_parent":true},{"category_id":1501,"name":"promotions","level":2,"parent_id":2,"url_key":"promotions","url_path":"promotions","is_parent":true},{"category_id":5462,"level":2,"parent_id":2,"url_key":"promotionsofficemate-global-cateogory","url_path":"promotionsofficemate-global-cateogory"},{"category_id":5463,"name":"Promotions","level":3,"parent_id":5462,"url_key":"promotions","url_path":"promotionsofficemate-global-cateogory/promotions"},{"category_id":5526,"name":"FEEL-FIN-NEW-TERM-SIAMWALLA","level":3,"parent_id":1501,"url_key":"feel-fin-new-term-siamwalla-1may-31jul21","url_path":"promotions/feel-fin-new-term-siamwalla-1may-31jul21","is_parent":true},{"category_id":6108,"name":"INFINITE-ONLINE-SELLER","level":4,"parent_id":5463,"url_key":"infinite-online-seller","url_path":"promotionsofficemate-global-cateogory/promotions/infinite-online-seller","is_parent":true},{"category_id":6114,"name":"INFINITE-ONLINE-SELLER-SIAMWALLA","level":4,"parent_id":5463,"url_key":"infinite-online-seller-siamwalla","url_path":"promotionsofficemate-global-cateogory/promotions/infinite-online-seller-siamwalla","is_parent":true},{"category_id":6153,"name":"ลดแรง! แถมเพียบ! ไอเทมเพื่อการเรียน","level":3,"parent_id":1501,"url_key":"school-supply-1-31aug21","url_path":"promotions/school-supply-1-31aug21","is_parent":true},{"category_id":6313,"name":"ทั้งลด ทั้งแถม! | อุปกรณ์สำนักงาน แบรนด์ Elephant, Quantum, Master Art","level":3,"parent_id":1501,"url_key":"siamwalla-1-30sep21","url_path":"promotions/siamwalla-1-30sep21","is_parent":true},{"category_id":6349,"name":"ลดสูงสุด 81%* ลดเพิ่ม! 10%* ฟรี* ปากกาเจล","level":3,"parent_id":1501,"url_key":"school-supply-1-30sep21","url_path":"promotions/school-supply-1-30sep21","is_parent":true},{"category_id":6383,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-1-30sep21","url_path":"promotions/grand-sale-office-supplies-1-30sep21","is_parent":true},{"category_id":6388,"name":"Grand Sale | อุปกรณ์สำนักงานและเครื่องเขียน แบรนด์ Siamwalla","level":3,"parent_id":1501,"url_key":"grand-sale-office-supplies-siamwalla-1-30sep21","url_path":"promotions/grand-sale-office-supplies-siamwalla-1-30sep21","is_parent":true},{"category_id":6628,"name":"STATIONERY-1-31OCT21","level":3,"parent_id":1501,"url_key":"stationery-1-31oct21","url_path":"promotions/stationery-1-31oct21","is_parent":true},{"category_id":6634,"name":"ทั้งลด ทั้งแถม! | อุปกรณ์สำนักงาน แบรนด์ Elephant, Quantum, Master Art","level":3,"parent_id":1501,"url_key":"siamwalla-1-31oct21","url_path":"promotions/siamwalla-1-31oct21","is_parent":true},{"category_id":6680,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-SIAMWALLA-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-siamwalla-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-siamwalla-1-31oct21","is_parent":true},{"category_id":6682,"name":"RECOVERY-SALE-OFFICE-SUPPLIES-1-31OCT21","level":3,"parent_id":1501,"url_key":"recovery-sale-office-supplies-1-31oct21","url_path":"promotions/recovery-sale-office-supplies-1-31oct21","is_parent":true}],"price":22,"tier_prices":[{"price":19,"original_price":22,"customer_group_id":0,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":1,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":2,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":3,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":4,"is_discount":true},{"price":19,"original_price":22,"customer_group_id":5,"is_discount":true}],"special_price":19,"special_from_date":"2021-10-01T00:00:00","special_to_date":"2021-10-31T23:59:59","stock":{"qty":867,"is_in_stock":true},"score":99983,"custom_attributes_option":[{"attribute_code":"small_image","value":"/1/0/1009054.jpg","position":0},{"attribute_code":"special_from_date","value":"2021-10-01 00:00:00","position":0},{"attribute_code":"in_xml_sitemap","value":"Include in XML Sitemap","position":0},{"attribute_code":"swatch_image","value":"no_selection","position":0},{"attribute_code":"visibility","value":4,"position":0},{"attribute_code":"percent_discount","value":14,"position":0},{"attribute_code":"price_inc_tax","value":22,"position":0},{"attribute_code":"created_at","value":"2019-12-24 07:21:10","position":0},{"attribute_code":"installment_plans","value":["5"],"position":0},{"attribute_code":"special_price","value":19,"position":0},{"attribute_code":"unit","value":"ด้าม","position":0},{"attribute_code":"standard_color_dp","value":"คละสี","position":0},{"attribute_code":"writting_color_dp","value":"น้ำเงิน","position":0},{"attribute_code":"online_price_enabled","value":"Online Price Enabled","position":0},{"attribute_code":"ts_dimensions_width","value":30,"position":0},{"attribute_code":"shipment_group_id","value":"MKP_2022","position":0},{"attribute_code":"ofm_product_type","value":15,"position":0},{"attribute_code":"tip_types_dp","value":"1 หัว","position":0},{"attribute_code":"weight","value":12,"position":0},{"attribute_code":"description","value":"&lt;ul&gt;\r\n&lt;li&gt;ปากกาลูกลื่น แบบกด&lt;/li&gt;\r\n&lt;li&gt;น้ำหมึกความหนืดต่ำ เขียนลื่น&lt;/li&gt;\r\n&lt;li&gt;หมึกไหลสม่ำเสมอ เส้นไม่ขาดตอน&lt;/li&gt;\r\n&lt;li&gt;หัวปากกาผลิตจากนิกเกิลซิลเวอร์ แข็งแรง&lt;/li&gt;\r\n&lt;li&gt;บริเวณด้ามจับสัมผัสยางนุ่ม จับถนัดมือ&lt;/li&gt;\r\n&lt;li&gt;ขนาดหัวปากกา 0.5 มม.&lt;/li&gt;\r\n&lt;li&gt;หมึกสีน้ำเงิน&lt;/li&gt;\r\n&lt;li&gt;ด้ามคละสี&lt;/li&gt;\r\n&lt;li&gt;จำนวน 1 ด้าม&lt;/li&gt;\r\n&lt;/ul&gt;","position":0},{"attribute_code":"pen_line_point_dp","value":"0.5 มม.","position":0},{"attribute_code":"ts_dimensions_length","value":185,"position":0},{"attribute_code":"body_material_dp","value":"พลาสติก","position":0},{"attribute_code":"special_expires_at","value":"2021-10-31 23:59:59","position":0},{"attribute_code":"ts_dimensions_height","value":12,"position":0},{"attribute_code":"updated_at","value":"2021-10-01 06:00:56","position":0},{"attribute_code":"has_options","value":false,"position":0},{"attribute_code":"barcode","value":"8851907269081","position":0},{"attribute_code":"image","value":"/1/0/1009054.jpg","position":0},{"attribute_code":"price_discount","value":13.62,"position":0},{"attribute_code":"status","value":"Enabled","position":0},{"attribute_code":"short_description","value":"&lt;p&gt;ปากกาลูกลื่น แบบกด Quantum Juice หมึกสีน้ำเงิน ด้ามคละสี ขนาด 0.5 มม. หัวปากกาผลิตจาก Nickel Silver คุณภาพดี แข็งแรง ทนทาน ทั้งยังควบคุมการไหลของน้ำหมึกได้อย่างสม่ำเสมอ น้ำหมึกความหนืดต่ำ ให้คุณเขียนได้ลื่น เส้นไม่ขาดตอน มี Rubber Grip ให้สัมผัสนุ่ม จับได้กระชับมือมากยิ่งขึ้น ให้ทุกการเขียนจดบันทึก สะดวก รวดเร็ว มีคลิปหนีบที่ปลายปลอก สะดวกพกพาง่าย&lt;/p&gt;","position":0},{"attribute_code":"special_to_date","value":"2021-10-31 23:59:59","position":0},{"attribute_code":"piece_or_pack","value":"1 ขิ้น","position":0},{"attribute_code":"is_returnable","value":"2","position":0},{"attribute_code":"brand_name","value":"ควอนตั้ม","position":0},{"attribute_code":"search_keywords","value":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี ควอนตั้ม Juice Quantum Juice Ball  Point Pen","position":0},{"attribute_code":"special_price_inc_tax","value":19,"position":0},{"attribute_code":"url_key","value":"quantum-juice-ball-point-pen-ofm1009054","values":["quantum-juice-ball-point-pen-ofm1009054"],"position":0},{"attribute_code":"package_dp","value":"ชิ้น","position":0},{"attribute_code":"product_group","value":"A","position":0},{"attribute_code":"required_options","value":false,"position":0},{"attribute_code":"sold_qty","value":9,"position":0},{"attribute_code":"options_container","value":"Block after Info Column","position":0},{"attribute_code":"tax_class_id","value":"Taxable Goods","position":0},{"attribute_code":"thumbnail","value":"/1/0/1009054.jpg","position":0}],"custom_attributes":[{"attribute_code":"name","name":"name","label":"Product Name","value":"ปากกาลูกลื่น 0.5 มม. หมึกสีน้ำเงิน ด้ามคละสี ควอนตั้ม Juice"},{"attribute_code":"image","name":"image","label":"Base","value":"/1/0/1009054.jpg"},{"attribute_code":"small_image","name":"small_image","label":"Small","value":"/1/0/1009054.jpg"},{"attribute_code":"thumbnail","name":"thumbnail","label":"Thumbnail","value":"/1/0/1009054.jpg"},{"attribute_code":"options_container","name":"options_container","label":"Display Product Options In","value":"container2"},{"attribute_code":"url_key","name":"url_key","label":"URL Key","value":"quantum-juice-ball-point-pen-ofm1009054"},{"attribute_code":"msrp_display_actual_price_type","name":"msrp_display_actual_price_type","label":"Display Actual Price","value":"0"},{"attribute_code":"gift_message_available","name":"gift_message_available","label":"Allow Gift Message","value":"0"},{"attribute_code":"gift_wrapping_available","name":"gift_wrapping_available","label":"Allow Gift Wrapping","value":"0"},{"attribute_code":"is_returnable","name":"is_returnable","label":"Enable RMA","value":"2"},{"attribute_code":"swatch_image","name":"swatch_image","label":"Swatch","value":"no_selection"},{"attribute_code":"installment_plans","name":"installment_plans","label":"Installment Plans","value":"5"},{"attribute_code":"unit","name":"unit","label":"Unit","value":"... (set the log level to DEBUG or TRACE to see the full content) 
+ </msg>
+<msg timestamp="20211024 11:54:09.352" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20211024 11:54:09.181" endtime="20211024 11:54:09.352"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_total}</arg>
+<arg>${response.json()['products']['total_count']}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20211024 11:54:09.352" endtime="20211024 11:54:09.361"/>
+</kw>
+<status status="PASS" starttime="20211024 11:54:09.180" endtime="20211024 11:54:09.370"/>
+</kw>
+<tag>API</tag>
+<status status="PASS" starttime="20211024 11:54:09.179" endtime="20211024 11:54:09.371"/>
+</test>
+<status status="PASS" starttime="20211024 11:53:37.989" endtime="20211024 11:54:09.373"/>
+</suite>
+<status status="PASS" starttime="20211024 11:53:37.970" endtime="20211024 11:54:09.375"/>
+</suite>
+<statistics>
+<total>
+<stat pass="8" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">API</stat>
+<stat pass="4" fail="0" skip="0">UI</stat>
+</tag>
+<suite>
+<stat pass="8" fail="0" skip="0" id="s1" name="1-Search Function">1-Search Function</stat>
+<stat pass="8" fail="0" skip="0" id="s1-s1" name="1-Testcases">1-Search Function.1-Testcases</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
